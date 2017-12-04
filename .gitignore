@@ -1,0 +1,6 @@
+node_modules
+server/*.js
+server/*/*.js
+variables
+npm-debug.log
+.DS_Store

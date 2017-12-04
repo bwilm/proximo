@@ -1,0 +1,54 @@
+{
+  "name": "proximo",
+  "version": "1.0.0",
+  "description": "restaurant finder app",
+  "main": "index.js",
+  "scripts": {
+    "test": "source variables && npm run dev",
+    "build:ts": "tsc -p .",
+    "server": "node server/index.js",
+    "dev": "nodemon -e ts --dir server/ --exec \"npm run start\"",
+    "start": "npm run build:ts && npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenWhite89/Proximo.git"
+  },
+  "keywords": [
+    "proximo", "próximo", "restaurant", "bar", "finder", "swipe"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenWhite89/Proximo/issues"
+  },
+  "homepage": "https://github.com/BenWhite89/Proximo#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.16.7",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/express": "^4.0.39",
+    "@types/express-mysql-session": "^1.2.2",
+    "@types/express-session": "^1.15.5",
+    "@types/mysql": "^2.15.0",
+    "@types/passport": "^0.3.5",
+    "@types/passport-local": "^1.0.32",
+    "@types/stripe": "^4.8.0",
+    "body-parser": "latest",
+    "cookie-parser": "^1.4.3",
+    "express": "latest",
+    "express-mysql-session": "^1.2.2",
+    "express-session": "^1.15.6",
+    "express-static": "^1.2.5",
+    "mysql": "^2.15.0",
+    "nodemon": "latest",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "prerender-node": "^2.7.4",
+    "sendgrid": "latest",
+    "stripe": "^5.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.1"
+  }
+}
