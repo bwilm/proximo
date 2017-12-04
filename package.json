@@ -15,7 +15,12 @@
     "url": "git+https://github.com/BenWhite89/Proximo.git"
   },
   "keywords": [
-    "proximo", "próximo", "restaurant", "bar", "finder", "swipe"
+    "proximo",
+    "próximo",
+    "restaurant",
+    "bar",
+    "finder",
+    "swipe"
   ],
   "author": "",
   "license": "MIT",
