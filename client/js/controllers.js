@@ -13,4 +13,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('MainController', [function() {
 
+    
+
     }])
