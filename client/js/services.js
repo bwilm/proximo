@@ -1,14 +1,28 @@
 angular.module('proximo.services', [])
     .service('GeolocationService', [function() {
 
+        let coordinates = {}
+
         return {
-            getPosition: getPosition
+            geolocatePosition: geolocatePosition,
+            getCoordinates: getCoordinates
         }
 
-        function getPosition() {
+        function geolocatePosition(callback) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                console.log(position);
+                let currentLocation = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                };
+                console.log(currentLocation);
+                coordinates = currentLocation;
+                callback();
             });
+        };
+
+        function getCoordinates() {
+            console.log(coordinates);
+            return coordinates;
         }
 
     }])
