@@ -2,19 +2,19 @@ angular.module('proximo', ['ngRoute', 'ngResource', 'proximo.controllers', 'prox
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: views/home.html,
+                templateUrl: 'views/home.html',
                 controller: HomeController
             })
             .when('/about', {
-                templateUrl: views/about.html,
+                templateUrl: 'views/about.html',
                 controller: AboutController
             })
             .when('/main', {
-                templateUrl: views/main.html,
+                templateUrl: 'views/main.html',
                 controller: MainController
             })
             .when('/result', {
-                templateUrl: views/result.html,
+                templateUrl: 'views/result.html',
                 controller: ResultController
             })
             .otherwise({
