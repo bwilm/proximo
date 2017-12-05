@@ -20,7 +20,7 @@ export function getCoords(address: string): Promise<models.ICoords> {
 };
 
 export function getPlaces(lat: number, lng: number, radius: string, type: string, keywords: Array<string>): Promise<Array<any>> {
-    
+
     let convertedKeywords = convert(keywords);
     const url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius="+radius+"&type="+type+convertedKeywords+"&opennow=true&key="+process.env.GOOGLE_PLACES_KEY;
     return axios.get(url)
@@ -53,28 +53,29 @@ function convert(keywords: Array<string>) {
     }
 };
 
+export function getArrayDetails(places: Array<string>): Promise<any> {
+
+            let promiseList = places.map(element => {
+                return getPlaceDetails(element);
+            });
+
+            return Promise.all(promiseList)
+            .then(values => {
+                return values;
+            })
+    }
+
 export function getPlaceDetails(placeId: string): Promise<any> {
 
     const url = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+placeId+"&key="+process.env.GOOGLE_PLACES_KEY;
 
     return axios.get(url)
     .then(response => {
-        return response.data;
+        return response.data.result;
     })
     .catch(error => {
         console.log(error);
     })
 };
 
-export function getArrayDetails(places: Array<string>): Promise<any> {
 
-        let promiseList = places.map(element => {
-            return getPlaceDetails(element);
-        });
-
-        return Promise.all(promiseList)
-        .then(values => {
-            return values;
-        })
-
-}
