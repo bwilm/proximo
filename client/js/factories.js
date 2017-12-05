@@ -3,5 +3,5 @@ angular.module('proximo.factories', ['ngResource'])
         return $resource('/api/contact/:id', { id: '@id' }, {});
     }])
     .factory('Places', ['$resource', function($resource) {
-        return $resource('/api/places', {}, {});
+        return $resource('/api/places/:id', { id: '@id' }, {});
     }])
