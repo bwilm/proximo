@@ -1,9 +1,9 @@
 angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('HomeController', ['$scope', 'GeolocationService', function($scope, GeolocationService) {
         let coordinates;
-        GeolocationService.geolocatePosition(function() {
+        GeolocationService.setCoordinates(function() {
             coordinates = GeolocationService.getCoordinates();
-            console.log(coordinates);
+            GeolocationService.getPlaces();
         });
 
     }])
@@ -13,8 +13,9 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('ResultController', [function() {
 
     }])
+    .controller('SettingsController', [function() {
+        
+    }])
     .controller('MainController', [function() {
-
-    
 
     }])

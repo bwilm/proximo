@@ -1,22 +1,22 @@
 angular.module('proximo.services', [])
-    .service('GeolocationService', [function() {
+    .service('GeolocationService', ['$http', function($http) {
 
-        let coordinates = {}
+        let coordinates = {};
+        let places;
 
         return {
-            geolocatePosition: geolocatePosition,
-            getCoordinates: getCoordinates
+            setCoordinates: setCoordinates,
+            getCoordinates: getCoordinates,
+            getPlaces: getPlaces
         }
 
-        function geolocatePosition(callback) {
+        function setCoordinates(callbackFunction) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                let currentLocation = {
+                coordinates = {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                 };
-                console.log(currentLocation);
-                coordinates = currentLocation;
-                callback();
+                callbackFunction();
             });
         };
 
@@ -24,5 +24,15 @@ angular.module('proximo.services', [])
             console.log(coordinates);
             return coordinates;
         }
+
+        function getPlaces() {
+            $http.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinates.latitude},${coordinates.longitude}&radius=500&type=restaurant&key=AIzaSyD8qQGQBpA_SsxbErRvmMxiMdxRj-VD0TY`)
+                .then(function(response) {
+                    places = response.data;
+                    console.log(places);
+                })
+        }
+
+
 
     }])
