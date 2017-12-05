@@ -15,7 +15,20 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         here.$save(results => {
             $scope.places = results;
+
+            let images = []
+
+            for (let i = 0; i < results.places.length; i++){
+                for (let j = 0; j < results.places[i].photos.length; j++) {
+                    images.push({
+                        placeId: results.places[i].id,
+                        photo_reference: results.places[i].photos[j].photo_reference
+                    })
+                }
+            }
+            console.log(images);
             console.log($scope.places);
+
         })
 
         // Places.query({ id: '434 Houston St, Nashville, TN 37203'}, results => {
@@ -31,7 +44,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
     }])
     .controller('SettingsController', [function() {
-        
+
     }])
     .controller('MainController', [function() {
 
