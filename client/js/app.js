@@ -17,6 +17,10 @@ angular.module('proximo', ['ngRoute', 'ngResource', 'proximo.controllers', 'prox
                 templateUrl: 'views/result.html',
                 controller: 'ResultController'
             })
+            .when('/settings', {
+                templateUrl: 'views/settings.html',
+                controller: 'SettingsController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
