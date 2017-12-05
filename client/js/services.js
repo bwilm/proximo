@@ -33,6 +33,4 @@ angular.module('proximo.services', [])
                 })
         }
 
-
-
     }])
