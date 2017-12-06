@@ -1,4 +1,4 @@
-angular.module('proximo', ['ngRoute', 'ngResource', 'proximo.controllers', 'proximo.factories', 'proximo.directives', 'proximo.services'])
+angular.module('proximo', ['ngAnimate','ngRoute', 'ngResource', 'proximo.controllers', 'proximo.factories', 'proximo.directives', 'proximo.services'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
