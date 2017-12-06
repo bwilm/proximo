@@ -35,8 +35,8 @@
     <div class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <i style="color:white; margin-top: 4px;"class="material-icons prefix ">location_city</i>
-          <input type="text" id="autocomplete-input" class="autocomplete  ">
+          <i style="color: white; margin-top: 4px;" class="material-icons prefix ">location_city</i>
+          <input type="text" id="autocomplete-input" class="autocomplete  " ng-model="here">
           <label class="white-text" for="autocomplete-input ">Location</label>
         </div>
       </div>
@@ -48,30 +48,30 @@
 <div style="margin-top:1em;"></div>
 <form  class=" white-text" style="padding-left: 1em; margin-bottom: 1em;"action="#">
 <p>
-  <input class="with-gap white"name="group1" type="radio" id="test1" />
-  <label class=" white-text"for="test1"> less than 1mile </label>
+  <input class="with-gap white"name="group1" type="radio" id="test1" ng-model="range" value="1"/>
+  <label class=" white-text"for="test1"> less than 1 mile </label>
 </p>
 <p>
-  <input  class="with-gap"name="group1" type="radio" id="test2" />
-  <label class=" white-text"for="test2"> within 5miles</label>
+  <input  class="with-gap"name="group1" type="radio" id="test2" ng-model="range" value="5"/>
+  <label class=" white-text"for="test2"> within 5 miles</label>
 </p>
 <p>
-  <input class="with-gap" name="group1" type="radio" id="test3"  />
-  <label class=" white-text" for="test3">within 10miles</label>
+  <input class="with-gap" name="group1" type="radio" id="test3"  ng-model="range" value="10"/>
+  <label class=" white-text" for="test3">within 10 miles</label>
 </p>
 <p>
-  <input class="with-gap"name="group1" type="radio" id="test4" />
-  <label class=" white-text"for="test4">within 20miles</label>
+  <input class="with-gap"name="group1" type="radio" id="test4" ng-model="range" value="20"/>
+  <label class=" white-text"for="test4">within 20 miles</label>
 </p>
 <p>
-  <input class="with-gap"name="group1" type="radio" id="test5" />
-  <label class=" white-text"for="test5">within 30miles</label>
+  <input class="with-gap"name="group1" type="radio" id="test5" ng-model="range" value="30"/>
+  <label class=" white-text"for="test5">within 30 miles</label>
 </p>
 </form>
 
 
 <div class="row">
 
-  <button  style="margin-top: 0px; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5"><a style="color:white"href="/main">Continue</a></button>
+  <button  style="margin-top: 0px; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5" ng-click="start()"><!--<a style="color:white"href="/main">Continue</a>-->Continue</button>
 
 </div>
