@@ -16,6 +16,20 @@
   background-size: contain;
 }
 
+.fade-out.ng-hide {
+  opacity: 0;
+}
+
+.fade-out.ng-hide-add, .fade-out.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.check-element {
+  border: 1px solid black;
+  opacity: 1;
+  padding: 10px;
+}
+
 /*.slider {
     -webkit-appearance: none;
     width: 100%;
