@@ -9,6 +9,14 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('AboutController', [function() {
 
+        let myStorage = window.localStorage;
+
+        myStorage.setItem('myObj', {
+            item: '1'
+        });
+
+        console.log(myStorage.getItem(`myObj`));
+
     }])
     .controller('ResultController', [function() {
 
@@ -19,7 +27,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             let coords = GeolocationService.getCoordinates();
 
             PlacesService.setPlaces({
-                address: $scope.here,
+                address: $scope.here || '',
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
                 radius: '500',

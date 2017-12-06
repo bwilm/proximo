@@ -47,24 +47,24 @@ angular.module('proximo.services', [])
             return here.$save(results => {
 
                 places = results.photos;
-                console.log(results.photos);
 
                 let images = []
 
                 for (let i = 0; i < places.length; i++){
-                    for (let j = 0; j < places[i].photos.length; j++) {
-                        images.push({
-                            placeId: places[i].place_id,
-                            photo_reference: places[i].photos[j].photo_reference
-                        })
+                    if (places[i].photos) {
+                        for (let j = 0; j < places[i].photos.length; j++) {
+                            images.push({
+                                placeId: places[i].place_id,
+                                photo_reference: places[i].photos[j].photo_reference
+                            })
+                        }
                     }
+
                 }
 
                 images = shuffle(images);
 
-
                 $rootScope.images = images;
-                console.log(images);
                 $location.url('/main');
                 return images;
 
