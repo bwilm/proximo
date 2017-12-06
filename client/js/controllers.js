@@ -1,6 +1,10 @@
 angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('HomeController', ['$scope', 'GeolocationService', 'Places',function($scope, GeolocationService, Places) {
 
+        GeolocationService.setCoordinates(function() {
+            $scope.coords = GeolocationService.getCoordinates();
+
+        });
 
     }])
     .controller('AboutController', [function() {
@@ -11,43 +15,30 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('SettingsController', ['$scope', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $location, GeolocationService, PlacesService, Places) {
 
-        let coords;
-        GeolocationService.setCoordinates(function() {
-            coords = GeolocationService.getCoordinates();
+        $scope.start = function() {
+            let coords = GeolocationService.getCoordinates();
+
             PlacesService.setPlaces({
                 address: $scope.here,
-                lat: coords.lat,
-                lng: coords.lng,
+                lat: coords.lat || 0,
+                lng: coords.lng || 0,
                 radius: '500',
                 type: 'restaurant',
                 keywords: []
             })
 
-        });
-
-        // $scope.start = function() {
-        //
-        //     PlacesService.setPlaces({
-        //         address: $scope.here,
-        //         lat: coords.lat,
-        //         lng: coords.lng,
-        //         radius: '500',
-        //         type: 'restaurant',
-        //         keywords: []
-        //     })
-        //
-        // }
+        }
 
     }])
     .controller('MainController', ['$scope', '$rootScope', 'PlacesService', 'Places', function($scope, $rootScope, PlacesService, Places) {
 
-        image = $rootScope.images.shift();
+        $scope.placeImage = $rootScope.images.shift();
 
-        $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+image.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+        $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.placeImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
 
         $scope.nextImage = function() {
-            image = $rootScope.images.shift();
-            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+image.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+            $scope.placeImage = $rootScope.images.shift();
+            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.placeImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
 
         // function getImage() {

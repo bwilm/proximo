@@ -25,7 +25,7 @@ angular.module('proximo.services', [])
         }
 
     }])
-    .service('PlacesService', ['$rootScope', 'Places', function($rootScope, Places) {
+    .service('PlacesService', ['$rootScope', '$location', 'Places', function($rootScope, $location, Places) {
 
         return {
             setPlaces: setPlaces,
@@ -60,8 +60,12 @@ angular.module('proximo.services', [])
                     }
                 }
 
+                images = shuffle(images);
+
+
                 $rootScope.images = images;
                 console.log(images);
+                $location.url('/main');
                 return images;
 
             })
@@ -69,6 +73,14 @@ angular.module('proximo.services', [])
 
         function getPlaces() {
             return places;
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         }
 
 
