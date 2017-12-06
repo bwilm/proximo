@@ -5,33 +5,45 @@ const router = Router();
 
 router.route('/:id')
     .get((req, res) => {
-        places.getCoords(req.params.id)
+        places.getImage(req.params.id)
         .then(result => {
-            console.log(result);
-        })
-    })
-    .post((req, res) => {
-        places.getCoords(req.body.address)
-        .then(result => {
-            console.log(result);
+            res.status(200).send(result);
+        }, err => {
+            console.log(err);
+            res.sendStatus(500);
         })
     })
 
 router.route('/')
     .post((req, res) => {
-        places.getCoords(req.body.address)
-        .then(coords => {
-            places.getPlaces(coords.lat, coords.lng, req.body.radius, req.body.type, req.body.keywords)
+        if (req.body.address) {
+            console.log('has address')
+            places.getCoords(req.body)
             .then(placeList => {
-                places.getArrayDetails(placeList)
-                .then(details => {
-                    let response = {
-                        places: details
-                    }
-                    res.send(response);
+                let response = {
+                    photos: placeList
+                }
+                res.send(response);
+                }, err => {
+                    console.log(err);
+                    res.sendStatus(500);
                 })
-            })
-        })
+
+
+        } else {
+            console.log('has no address')
+            places.hasCoords(req.body)
+            .then(placeList => {
+                let response = {
+                    photos: placeList
+                }
+                res.send(response);
+                }, err => {
+                    console.log(err);
+                    res.sendStatus(500);
+                })
+
+        }
     })
 
 export default router;

@@ -7,31 +7,38 @@ let googleMapsClient = require('@google/maps').createClient({
 })
 
 
-export function getCoords(address: string): Promise<models.ICoords> {
+export function getCoords(query: any): Promise<any> {
+
     return googleMapsClient.geocode({
-        address: address
+        address: query.address
     }).asPromise()
     .then((response: any) => {
-        return response.json.results[0].geometry.location;
+        query.lat = response.json.results[0].geometry.location.lat;
+        query.lng = response.json.results[0].geometry.location.lng;
+        return hasCoords(query);
     })
     .catch((error: any) => {
         console.log(error);
     });
+
 };
 
-export function getPlaces(lat: number, lng: number, radius: string, type: string, keywords: Array<string>): Promise<Array<any>> {
+export function hasCoords(query: any): Promise<Array<any>> {
 
-    let convertedKeywords = convert(keywords);
-    const url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius="+radius+"&type="+type+convertedKeywords+"&opennow=true&key="+process.env.GOOGLE_PLACES_KEY;
+    let convertedKeywords = convert(query.keywords);
+    const url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+query.lat+","+query.lng+"&radius="+query.radius+"&type="+query.type+convertedKeywords+"&opennow=true&key="+process.env.GOOGLE_PLACES_KEY;
+
     return axios.get(url)
     .then(results => {
-        return results.data.results.map((element: any) => {
+        return getArrayDetails(results.data.results.map((element: any) => {
             return element.place_id;
-        });
+        }));
     })
     .catch(error => {
         console.log(error);
     })
+
+
 }
 
 function convert(keywords: Array<string>) {
@@ -53,29 +60,51 @@ function convert(keywords: Array<string>) {
     }
 };
 
-export function getArrayDetails(places: Array<string>): Promise<any> {
+function getArrayDetails(places: Array<string>): Promise<any> {
 
-            let promiseList = places.map(element => {
-                return getPlaceDetails(element);
-            });
+    let promiseList = places.map(element => {
+        return getPlaceDetails(element);
+    });
 
-            return Promise.all(promiseList)
-            .then(values => {
-                return values;
-            })
-    }
+    return Promise.all(promiseList)
+    .then(values => {
+        return values;
+    })
+}
 
-export function getPlaceDetails(placeId: string): Promise<any> {
+function getPlaceDetails(placeId: string): Promise<any> {
+
 
     const url = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+placeId+"&key="+process.env.GOOGLE_PLACES_KEY;
 
     return axios.get(url)
     .then(response => {
-        return response.data.result;
+        let placeDetail = {
+            place_id: response.data.result.place_id,
+            name: response.data.result.name,
+            url: response.data.result.url,
+            website: response.data.result.website,
+            address: response.data.result.formatted_address,
+            lat: response.data.result.geometry.location.lat,
+            lng: response.data.result.geometry.location.lng,
+            rating: response.data.result.rating,
+            photos: response.data.result.photos
+        }
+        return placeDetail;
     })
     .catch(error => {
         console.log(error);
     })
 };
 
+export function getImage(reference: string): Promise<any> {
+    const url = "https://maps.googleapis.com/maps/api/place/photo?key="+process.env.GOOGLE_PLACES_KEY+"&maxheight=1600&photoreference="+reference
 
+    return axios.get(url)
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}
