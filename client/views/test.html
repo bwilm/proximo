@@ -1,0 +1,49 @@
+<script>
+  $(document).ready(function(){
+
+  $('select').material_select();
+
+  $(".button-collapse").sideNav();
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
+
+  });
+</script>
+
+<div style="height:100vh; margin: 0px; margin-left: 0px; inline">
+<nav>
+<div class="nav-wrapper pink darken-4 ">
+<a href="/home" class="brand-logo pacifico">Próximo</a>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+<li><a href="/home"><i class="material-icons">home</i></a></li>
+<li><a href="/about"><i class="material-icons">live_help</i></a></li>
+</ul>
+<ul id="mobile-demo" class="side-nav">
+<li><a href="/">home</a></li>
+<li><a href="/about">about</a></li>
+
+</ul>
+</div>
+</nav>
+<div class="row">
+<div style = "background-color: red; height: 95vh;"class=" container col s3"> col1</div>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"style = "background-color: light-blue; height: 95vh;"class=" container col s6"> col2</div>
+<div style = "background-color: green; height: 95vh;"class=" container col s3"> col3</div>
+
+</div>
+</div>
