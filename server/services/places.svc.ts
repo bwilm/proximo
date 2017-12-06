@@ -62,7 +62,7 @@ function convert(keywords: Array<string>) {
 
 function getArrayDetails(places: Array<string>): Promise<any> {
 
-    let promiseList = places.map(element => {
+    let promiseList = shuffle(places).slice(0, 9).map((element: string) => {
         return getPlaceDetails(element);
     });
 
@@ -107,4 +107,12 @@ export function getImage(reference: string): Promise<any> {
     .catch(error => {
         console.log(error);
     })
+}
+
+function shuffle(array: Array<any>) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
