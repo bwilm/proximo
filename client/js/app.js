@@ -23,7 +23,11 @@ angular.module('proximo', ['ngRoute', 'ngResource', 'proximo.controllers', 'prox
             })
             .when('/test', {
                 templateUrl: 'views/test.html',
-                
+
+            })
+            .when('/loadscreen', {
+                templateUrl: 'views/loadscreen.html',
+
             })
             .otherwise({
                 redirectTo: '/'

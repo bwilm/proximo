@@ -24,11 +24,14 @@
 
 <div style="margin-top: 0em; width: 100%;"class="row">
         <div style="width: 100%; margin-top: 2em; padding-top: 1em;"class="col s6 m7">
-          <div style="width: 100%"class="card">
+          <div style="width: 100%"class="card" overflow:"hidden">
             <div class="card-image">
-              <img ng-src="{{ imageUrl }}" width="100%" height="auto">
 
-            </div>
+<div style="overflow:hidden" class="container">
+              <img  ng-src="{{ imageUrl }}" width:"100%" height:"250px" overflow:"hidden" margin-top: "1em">
+
+          </div>
+        </div>
             <div class="card-content">
               <p>general description
                 <a  style="float: right;"><i class="material-icons"style="color:grey;">live_help</i></a>
