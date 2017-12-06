@@ -32,6 +32,8 @@ angular.module('proximo.services', [])
             getPlaces: getPlaces
         }
 
+        let images = []
+
         function setPlaces(query) {
             let here = new Places({
                 address: query.address,
@@ -47,7 +49,7 @@ angular.module('proximo.services', [])
                 places = results.photos;
                 console.log(results.photos);
 
-                images = []
+                let images = []
 
                 for (let i = 0; i < places.length; i++){
                     for (let j = 0; j < places[i].photos.length; j++) {
@@ -67,10 +69,6 @@ angular.module('proximo.services', [])
 
         function getPlaces() {
             return places;
-        }
-
-        function getImages() {
-            return images;
         }
 
 

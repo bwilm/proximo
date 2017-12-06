@@ -26,7 +26,7 @@
         <div style="width: 100%; margin-top: 2em; padding-top: 1em;"class="col s6 m7">
           <div style="width: 100%"class="card">
             <div class="card-image">
-              <img src="">
+              <img ng-src="{{ imageUrl }}" width="100%" height="auto">
 
             </div>
             <div class="card-content">
@@ -39,7 +39,7 @@
       </div>
     <div style="width:100%"class="row">
       <a  style=" float: left; margin-left: 2em;"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">not_interested</i></a>
-      <a  style=" float: right; margin-right: 2em;"class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">sentiment_very_satisfied</i></a>
+      <button style=" float: right; margin-right: 2em;"class="btn-floating btn-large waves-effect waves-light green" ng-click="nextImage()"><i class="material-icons">sentiment_very_satisfied</i></button>
 
     </div>
 

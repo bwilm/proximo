@@ -14,10 +14,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         let coords;
         GeolocationService.setCoordinates(function() {
             coords = GeolocationService.getCoordinates();
-        });
-
-        $scope.start = function() {
-
             PlacesService.setPlaces({
                 address: $scope.here,
                 lat: coords.lat,
@@ -27,10 +23,42 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 keywords: []
             })
 
-        }
+        });
+
+        // $scope.start = function() {
+        //
+        //     PlacesService.setPlaces({
+        //         address: $scope.here,
+        //         lat: coords.lat,
+        //         lng: coords.lng,
+        //         radius: '500',
+        //         type: 'restaurant',
+        //         keywords: []
+        //     })
+        //
+        // }
 
     }])
-    .controller('MainController', ['$scope', 'PlacesService', 'Places', function($scope, PlacesService, Places) {
+    .controller('MainController', ['$scope', '$rootScope', 'PlacesService', 'Places', function($scope, $rootScope, PlacesService, Places) {
+
+        image = $rootScope.images.shift();
+
+        $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+image.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+
+        $scope.nextImage = function() {
+            image = $rootScope.images.shift();
+            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+image.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+        }
+
+        // function getImage() {
+        //     Places.get({ id: image.photo_reference}, response => {
+        //         console.log(response);
+        //         $scope.getImage = response;
+        //
+        //     })
+        // }
+        //
+        // getImage()
 
         // Places.get({ id: }, response => {
         //     $scope.imageUrl = response;
