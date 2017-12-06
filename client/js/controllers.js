@@ -11,11 +11,12 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         let myStorage = window.localStorage;
 
-        myStorage.setItem('myObj', {
+        myStorage.setItem('myObj', JSON.stringify({
             item: '1'
-        });
+        }));
 
-        console.log(myStorage.getItem(`myObj`));
+        let getStorage = myStorage.getItem(`myObj`);
+        console.log(JSON.parse(getStorage));
 
     }])
     .controller('ResultController', [function() {
@@ -40,14 +41,45 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('MainController', ['$scope', '$rootScope', 'PlacesService', 'Places', function($scope, $rootScope, PlacesService, Places) {
 
-        $scope.placeImage = $rootScope.images.shift();
+        let myStorage = window.localStorage;
+        let images = JSON.parse(myStorage.getItem('images'));
+        $scope.positives = [];
 
-        $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.placeImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
 
         $scope.nextImage = function() {
-            $scope.placeImage = $rootScope.images.shift();
-            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.placeImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+            // $scope.placeImage = $rootScope.images.shift();
+            currentImage = images.shift();
+            console.log($scope.positives);
+
+            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
+
+        $scope.positive = function() {
+            let index = searchArray($scope.positives, currentImage);
+
+            if (index === null) {
+                $scope.positives.push(currentImage)
+            } else {
+                $scope.positives[index].count += 1;
+            }
+
+            $scope.nextImage();
+        }
+
+        function searchArray(array, item) {
+            if (array.length > 0) {
+                for (let i = 0; i < array.length; i++) {
+                    if (item.placeId === array[i].placeId) {
+                        return i;
+                    }
+                }
+                return null;
+            } else {
+                return null;
+            }
+        }
+
+        $scope.nextImage();
 
         // function getImage() {
         //     Places.get({ id: image.photo_reference}, response => {

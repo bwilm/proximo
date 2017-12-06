@@ -33,6 +33,7 @@ angular.module('proximo.services', [])
         }
 
         let images = []
+        let myStorage = window.localStorage;
 
         function setPlaces(query) {
             let here = new Places({
@@ -46,16 +47,18 @@ angular.module('proximo.services', [])
 
             return here.$save(results => {
 
-                places = results.photos;
-
+                let places = results.photos
                 let images = []
+                let myStorage = window.localStorage;
+                myStorage.setItem('places', JSON.stringify(places));
 
                 for (let i = 0; i < places.length; i++){
                     if (places[i].photos) {
                         for (let j = 0; j < places[i].photos.length; j++) {
                             images.push({
                                 placeId: places[i].place_id,
-                                photo_reference: places[i].photos[j].photo_reference
+                                photo_reference: places[i].photos[j].photo_reference,
+                                count: 1
                             })
                         }
                     }
@@ -63,8 +66,8 @@ angular.module('proximo.services', [])
                 }
 
                 images = shuffle(images);
-
-                $rootScope.images = images;
+                myStorage.setItem('images', JSON.stringify(images));
+                // $rootScope.images = images;
                 $location.url('/main');
                 return images;
 
