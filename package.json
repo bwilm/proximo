@@ -38,6 +38,7 @@
     "@types/mysql": "^2.15.0",
     "@types/passport": "^0.3.5",
     "@types/passport-local": "^1.0.32",
+    "@types/request": "^2.0.8",
     "@types/stripe": "^4.8.0",
     "axios": "^0.17.1",
     "body-parser": "latest",
@@ -52,6 +53,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "prerender-node": "^2.7.4",
+    "request": "^2.83.0",
     "sendgrid": "latest",
     "stripe": "^5.3.0"
   },

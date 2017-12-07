@@ -13,6 +13,9 @@
   });
 </script>
 
+
+
+
 <div class="home" style="height:100vh; margin: 0px; margin-left: 0px; inline">
 <nav>
 <div class="nav-wrapper pink darken-4 ">
@@ -37,7 +40,7 @@
         <div class="input-field col s12">
           <i style="color: white; margin-top: 4px;" class="material-icons prefix ">location_city</i>
           <input type="text" id="autocomplete-input" style="color: white;" class="autocomplete  " ng-model="here">
-          <label class="white-text" for="autocomplete-input ">Location</label>
+          <label class="white-text" for="autocomplete-input "></label>
         </div>
       </div>
     </div>
@@ -75,3 +78,10 @@
   <button  style="margin-top: 0px; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5" ng-click="start()">Continue</button>
 
 </div>
+<script>
+    function activatePlacesSearch() {
+        var input = document.getElementById('autocomplete-input');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo&libraries=places&callback=activatePlacesSearch"></script>
