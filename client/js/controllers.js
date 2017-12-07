@@ -34,6 +34,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             }
 
             myStorage.setItem('proximoRejects', JSON.stringify(rejects));
+            PlacesService.setPlaces();
 
         }
 
@@ -41,6 +42,13 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
+
+        let myStorage = window.localStorage;
+        settings = JSON.parse(myStorage.getItem('proximoSettings'));
+
+
+        $scope.here = settings.address || '';
+        $scope.range = settings.radius || '800';
 
         $scope.start = function() {
             let coords = GeolocationService.getCoordinates();
@@ -50,9 +58,9 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 address: $scope.here || '',
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
-                radius: '5000',
+                radius: $scope.range || '500',
                 type: 'restaurant',
-                keywords: []
+                keywords: ['-hotel']
             }));
 
             PlacesService.setPlaces();

@@ -54,6 +54,18 @@ angular.module('proximo.services', [])
                 let places = results.photos
                 let images = []
                 let myStorage = window.localStorage;
+                let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
+
+                if (rejects && places[0]) {
+                    for (let i = 0; i < places.length; i++) {
+                        for (let j = 0; j < rejects.length; j++) {
+                            if (places[i].place_id === rejects[j]) {
+                                places.splice(i, 1);
+                            }
+                        }
+                    }
+                }
+
                 myStorage.setItem('proximoPlaces', JSON.stringify(places));
 
                 for (let i = 0; i < places.length; i++){
