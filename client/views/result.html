@@ -52,22 +52,9 @@
    <div class="carousel-fixed-item center">
 
    </div>
-   <div class="carousel-item pink darken-2 white-text" href="#one!">
+   <div class="carousel-item pink darken-2 white-text" href="#one!" ng-repeat="photo in match.photos">
 
-     <p class="white-text">We Recommend:</p>
-     <img src="images/clydes.jpg" alt="">
-   </div>
-   <div class="carousel-item amber white-text" href="#two!">
-
-
-   </div>
-   <div class="carousel-item green white-text" href="#three!">
-
-
-   </div>
-   <div class="carousel-item blue white-text" href="#four!">
-
-
+     <div back-img="{{ photo.photo_reference }}" style="width: 100%; height: 100%;">
    </div>
  </div>
 

@@ -23,6 +23,9 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         let myStorage = window.localStorage;
         $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
+        for (let i = 0; i < $scope.match.photos.length; i++) {
+            $scope.match.photos[i].photo_reference = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.match.photos[i].photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+        }
         console.log($scope.match);
 
 
