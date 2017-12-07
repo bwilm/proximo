@@ -79,15 +79,18 @@ function getPlaceDetails(placeId: string): Promise<any> {
 
     return axios.get(url)
     .then(response => {
+        // console.log(response.data.result)
         let placeDetail = {
             place_id: response.data.result.place_id,
             name: response.data.result.name,
             url: response.data.result.url,
             website: response.data.result.website,
-            address: response.data.result.formatted_address,
+            address: response.data.result.formatted_address.slice(0, -11),
+            phone: response.data.result.formatted_phone_number,
             lat: response.data.result.geometry.location.lat,
             lng: response.data.result.geometry.location.lng,
             rating: response.data.result.rating,
+            price: response.data.result.price_level,
             photos: response.data.result.photos
         }
         return placeDetail;
@@ -115,4 +118,8 @@ function shuffle(array: Array<any>) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+}
+
+function findState(element: any) {
+    return element.types === ["administrative_area_level_1", "political"];
 }
