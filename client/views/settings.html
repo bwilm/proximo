@@ -1,6 +1,7 @@
 <script>
   $(document).ready(function(){
-
+  $("#sidenav-overlay").fadeOut(300, function() {
+    $(this).remove(); });
   $('select').material_select();
 
 });
@@ -52,26 +53,27 @@
 
 <div style="margin-top:1em;"></div>
 <form  class=" white-text" style="padding-left: 1em; margin-bottom: 1em;"action="#">
-<p>
-  <input class="with-gap white"name="group1" type="radio" id="test1" ng-model="range" value="1600"/>
-  <label class=" white-text"for="test1"> less than 1 mile </label>
-</p>
-<p>
-  <input  class="with-gap"name="group1" type="radio" id="test2" ng-model="range" value="8000"/>
-  <label class=" white-text"for="test2"> within 5 miles</label>
-</p>
-<p>
-  <input class="with-gap" name="group1" type="radio" id="test3"  ng-model="range" value="16000"/>
-  <label class=" white-text" for="test3">within 10 miles</label>
-</p>
-<p>
-  <input class="with-gap"name="group1" type="radio" id="test4" ng-model="range" value="32000"/>
-  <label class=" white-text"for="test4">within 20 miles</label>
-</p>
-<p>
-  <input class="with-gap"name="group1" type="radio" id="test5" ng-model="range" value="48000"/>
-  <label class=" white-text"for="test5">within 30 miles</label>
-</p>
+
+        <p>
+          <input class="with-gap white" name="group1" type="radio" id="test1" ng-model="range" value="800" checked/>
+          <label class=" white-text"for="test1"> less than &frac12; mile </label>
+        </p>
+        <p>
+          <input  class="with-gap"name="group1" type="radio" id="test2" ng-model="range" value="1600"/>
+          <label class=" white-text"for="test2"> within 1 mile</label>
+        </p>
+        <p>
+          <input class="with-gap" name="group1" type="radio" id="test3"  ng-model="range" value="3200"/>
+          <label class=" white-text" for="test3">within 2 miles</label>
+        </p>
+        <p>
+          <input class="with-gap"name="group1" type="radio" id="test4" ng-model="range" value="8000"/>
+          <label class=" white-text"for="test4">within 5 miles</label>
+        </p>
+        <p>
+          <input class="with-gap"name="group1" type="radio" id="test5" ng-model="range" value="16000"/>
+          <label class=" white-text"for="test5">within 10 miles</label>
+        </p>
 </form>
 
 
