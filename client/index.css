@@ -68,6 +68,15 @@
     to { opacity: 1; }
 }
 
+.main.img{
+
+
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 100px;
+
+}
 /*.slider {
     -webkit-appearance: none;
     width: 100%;
