@@ -29,7 +29,8 @@ angular.module('proximo.services', [])
 
         return {
             setPlaces: setPlaces,
-            getPlaces: getPlaces
+            getPlaces: getPlaces,
+            match: match
         }
 
         let images = []
@@ -50,7 +51,7 @@ angular.module('proximo.services', [])
                 let places = results.photos
                 let images = []
                 let myStorage = window.localStorage;
-                myStorage.setItem('places', JSON.stringify(places));
+                myStorage.setItem('proximoPlaces', JSON.stringify(places));
 
                 for (let i = 0; i < places.length; i++){
                     if (places[i].photos) {
@@ -66,7 +67,7 @@ angular.module('proximo.services', [])
                 }
 
                 images = shuffle(images);
-                myStorage.setItem('images', JSON.stringify(images));
+                myStorage.setItem('proximoImages', JSON.stringify(images));
                 // $rootScope.images = images;
                 $location.url('/main');
                 return images;
@@ -78,12 +79,33 @@ angular.module('proximo.services', [])
             return places;
         }
 
+        function match(image) {
+            let myStorage = window.localStorage;
+            let places = JSON.parse(myStorage.getItem('proximoPlaces'));
+            let index = searchArray(places, image);
+            myStorage.setItem('proximoMatch', JSON.stringify(places[index]));
+            $location.url('/result');
+        }
+
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 let j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
+        }
+
+        function searchArray(array, item) {
+            if (array.length > 0) {
+                for (let i = 0; i < array.length; i++) {
+                    if (item.placeId === array[i].place_id) {
+                        return i;
+                    }
+                }
+                return null;
+            } else {
+                return null;
+            }
         }
 
 

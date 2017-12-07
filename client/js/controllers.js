@@ -19,7 +19,13 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         console.log(JSON.parse(getStorage));
 
     }])
-    .controller('ResultController', [function() {
+    .controller('ResultController', ['$scope', function($scope) {
+
+        let myStorage = window.localStorage;
+        $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
+        console.log($scope.match);
+
+
 
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
@@ -42,28 +48,30 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('MainController', ['$scope', '$rootScope', 'PlacesService', 'Places', function($scope, $rootScope, PlacesService, Places) {
 
         let myStorage = window.localStorage;
-        let images = JSON.parse(myStorage.getItem('images'));
-        $scope.positives = [];
+        let images = JSON.parse(myStorage.getItem('proximoImages'));
+        let positives = [];
 
 
         $scope.nextImage = function() {
             // $scope.placeImage = $rootScope.images.shift();
             currentImage = images.shift();
-            console.log($scope.positives);
+            console.log(positives);
 
             $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
 
         $scope.positive = function() {
-            let index = searchArray($scope.positives, currentImage);
+            let index = searchArray(positives, currentImage);
 
             if (index === null) {
-                $scope.positives.push(currentImage)
+                positives.push(currentImage)
+                $scope.nextImage();
+            } else if (positives[index].count === 1) {
+                PlacesService.match(currentImage);
             } else {
-                $scope.positives[index].count += 1;
+                positives[index].count += 1;
+                $scope.nextImage();
             }
-
-            $scope.nextImage();
         }
 
         function searchArray(array, item) {
