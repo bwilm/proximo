@@ -9,17 +9,8 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('AboutController', [function() {
 
-        let myStorage = window.localStorage;
-
-        myStorage.setItem('myObj', JSON.stringify({
-            item: '1'
-        }));
-
-        let getStorage = myStorage.getItem(`myObj`);
-        console.log(JSON.parse(getStorage));
-
     }])
-    .controller('ResultController', ['$scope', function($scope) {
+    .controller('ResultController', ['$scope', 'PlacesService', function($scope, PlacesService) {
 
         let myStorage = window.localStorage;
         $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
@@ -27,6 +18,19 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             $scope.match.photos[i].photo_reference = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.match.photos[i].photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
         console.log($scope.match);
+
+        $scope.reject = function(match) {
+            let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
+
+            if (rejects) {
+                rejects.push(match.place_id);
+            } else {
+                rejects = [match.place_id];
+            }
+
+            myStorage.setItem('proximoRejects', JSON.stringify(rejects));
+
+        }
 
 
 
@@ -36,14 +40,17 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         $scope.start = function() {
             let coords = GeolocationService.getCoordinates();
 
-            PlacesService.setPlaces({
+            let myStorage = window.localStorage;
+            myStorage.setItem('proximoSettings', JSON.stringify({
                 address: $scope.here || '',
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
                 radius: '5000',
                 type: 'restaurant',
                 keywords: []
-            })
+            }));
+
+            PlacesService.setPlaces();
 
         }
 
@@ -58,7 +65,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         $scope.nextImage = function() {
             // $scope.placeImage = $rootScope.images.shift();
             currentImage = images.shift();
-            console.log(positives);
 
             $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }

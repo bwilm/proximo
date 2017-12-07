@@ -36,7 +36,10 @@ angular.module('proximo.services', [])
         let images = []
         let myStorage = window.localStorage;
 
-        function setPlaces(query) {
+        function setPlaces() {
+            let myStorage = window.localStorage;
+            let query = JSON.parse(myStorage.getItem('proximoSettings'));
+
             let here = new Places({
                 address: query.address,
                 lat: query.lat,
