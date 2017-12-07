@@ -9,14 +9,22 @@
 <script>
   $(document).ready(function(){
 
+    window.addEventListener("beforeunload", function(){
+      document.body.classList.add("animate-out");
+    });
+
      $(".button-collapse").sideNav();
   });
 </script>
 
+<<<<<<< HEAD
 
 
 
 <div class="home" style="height:100vh; margin: 0px; margin-left: 0px; inline">
+=======
+<div class="home animate-in" style="height:100vh; margin: 0px; margin-left: 0px; inline">
+>>>>>>> c4d9aa435da95617e64e8a49b20fbdea23a346ce
 <nav>
 <div class="nav-wrapper pink darken-4 ">
 <a href="/home" class="brand-logo pacifico">Próximo</a>
