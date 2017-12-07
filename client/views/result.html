@@ -64,6 +64,9 @@
       <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4">We Recommend:<i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"></i></span>
     </div>
     <div class="row">
+        <div style="color: darkgreen;">
+            <a style="color: inherit;" ng-href="{{ match.url }}"><i style="color: navyblue; width: 10px;" class="material-icons">directions</i></a>
+        </div>
     <div class="col 3"> <span><h5>{{match.name}}</h5></span> </div>
     <div style="float: right" class="col 2"> <span><h3 style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px"class="material-icons">star_rate</i></h3></span></div>
   </div>
@@ -72,6 +75,22 @@
   <!--reveal  -->
       <div class="card-reveal">
   <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right">close</i></span>
+    <div class="row">
+        {{ match.name }}
+    </div>
+    <div class="row">
+        {{ match.address }}
+    </div>
+    <div class="row">
+        {{ match.phone }}
+    </div>
+    <a ng-href="{{ match.website }}"><div class="row">
+        {{ match.website }}
+    </div></a>
+    <div class="row">
+        {{ match.price }}
+    </div>
+
       <div class="row">
         <a href="/"><i style="color:red"class="material-icons">not_interested</i></a>
       </div>
