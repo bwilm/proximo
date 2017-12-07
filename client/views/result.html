@@ -6,6 +6,8 @@
      window.addEventListener("beforeunload", function(){
        document.body.classList.add("animate-out");
      });
+
+      $('.carousel.carousel-slider').carousel({fullWidth: true});
   });
 </script>
 
@@ -18,8 +20,8 @@
 <li><a href="/about"><i class="material-icons">live_help</i></a></li>
 </ul>
 <ul id="mobile-demo" class="side-nav">
-<li><a href="/">home</a></li>
-<li><a href="/about">about</a></li>
+  <li><a style="color:white"href="/">home</a></li>
+  <li><a style="color:white"href="/about">about</a></li>
 </nav>
 
 <!-- <div style="margin-top: 5em"class="row">
@@ -41,10 +43,35 @@
   </div> -->
 <div class="home" style="height:100vh; margin: 0px; margin-left: 0px; inline ">
 
-  <div style="margin-top: 4em;"class="card">
+  <div style="margin-top: 0em;"class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/clydes.jpg">
-      <span class="card-title"><h6>We Recommend:</h6></span>
+  <!--Carousel for Images inserted here  -->
+
+
+  <div class="carousel carousel-slider center" data-indicators="true">
+   <div class="carousel-fixed-item center">
+
+   </div>
+   <div class="carousel-item pink darken-2 white-text" href="#one!">
+
+     <p class="white-text">We Recommend:</p>
+     <img src="images/clydes.jpg" alt="">
+   </div>
+   <div class="carousel-item amber white-text" href="#two!">
+
+
+   </div>
+   <div class="carousel-item green white-text" href="#three!">
+
+
+   </div>
+   <div class="carousel-item blue white-text" href="#four!">
+
+
+   </div>
+ </div>
+
+
     </div>
     <div class="card-content z-depth-4">
       <span class="card-title activator grey-text text-darken-4">We Recommend:<i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"></i></span>

@@ -1,3 +1,14 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+    
+
 .home{
 
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
