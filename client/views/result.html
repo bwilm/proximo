@@ -57,43 +57,51 @@
  </div>
     </div>
   </div>
-    <!--carousel code ends here  -->
+    <!--carousel html ends here  -->
 
-    <div style= "padding-left: 0.1em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 4em; padding-top:0em;"class="card-content z-depth-5">
+    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 4em; padding-top:0em;"class="card-content z-depth-5">
       <div class="row">
-      <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4">We Recommend:<i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"></i></span>
+      <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse"><i class="material-icons left">check</i>WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"></i></span>
     </div>
     <div class="row">
         <div style="color: darkgreen;">
             <a style="color: inherit;" ng-href="{{ match.url }}"><i style="color: navyblue; width: 10px;" class="material-icons">directions</i></a>
         </div>
     <div class="col 3"> <span><h5>{{match.name}}</h5></span> </div>
-    <div style="float: right" class="col 2"> <span><h3 style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px"class="material-icons">star_rate</i></h3></span></div>
+    <div style="float: right" class="col 2"> <span><h3 style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px;margin-right:2px;"class="material-icons">star_rate</i></h3></span></div>
   </div>
 </div>
 
   <!--reveal  -->
-      <div class="card-reveal">
+      <div class="card-reveal pink darken-2 pink-text">
   <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right">close</i></span>
-    <div class="row">
-        {{ match.name }}
-    </div>
-    <div class="row">
-        {{ match.address }}
-    </div>
-    <div class="row">
-        {{ match.phone }}
-    </div>
-    <a ng-href="{{ match.website }}"><div class="row">
+<ul class="collection">
+
+      <li class="collection-item">  {{ match.name }}</li>
+
+
+
+      <li class="collection-item"> {{ match.address }}</li>
+
+
+      <li class="collection-item">  {{ match.phone }}</li>
+
+<li class="collection-item">
+    <a ng-href="{{ match.website }}">
         {{ match.website }}
-    </div></a>
-    <div class="row">
+    </a>
+  </li>
+  <li class="collection-item">
+    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
         {{ match.price }}
     </div>
+  </li>
 
-      <div class="row">
-        <a href="/"><i style="color:red"class="material-icons">not_interested</i></a>
-      </div>
+
+    <li style="padding-bottom:20px;"class="collection-item"><a style="width:100%"href="" class="waves-effect waves-light btn red"
+        <a style="margin-top: 2em;padding-bottom:10px; color:inherit;"href="/settings"><i style="color:; float: right"class="material-icons">not_interested</i> Not Interested></a></a>
+      </li>
+    </ul>
     </div>
 
 </div>
