@@ -1,6 +1,7 @@
 <script>
   $(document).ready(function(){
-
+  $("#sidenav-overlay").fadeOut(300, function() {
+    $(this).remove(); });
   $('select').material_select();
 
 });
@@ -52,7 +53,7 @@
 
 <div style="margin-top:1em;"></div>
 <form  class=" white-text" style="padding-left: 1em; margin-bottom: 1em;"action="#">
-    
+
         <p>
           <input class="with-gap white" name="group1" type="radio" id="test1" ng-model="range" value="800" checked/>
           <label class=" white-text"for="test1"> less than &frac12; mile </label>

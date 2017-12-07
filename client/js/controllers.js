@@ -24,16 +24,18 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         $scope.match.price = price;
         console.log($scope.match);
 
-        $scope.reject = function(match) {
+        $scope.reject = function() {
+            console.log('1')
             let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
 
             if (rejects) {
-                rejects.push(match.place_id);
+                rejects.push($scope.match.place_id);
             } else {
-                rejects = [match.place_id];
+                rejects = [$scope.match.place_id];
             }
 
             myStorage.setItem('proximoRejects', JSON.stringify(rejects));
+            console.log('2')
             PlacesService.setPlaces();
 
         }

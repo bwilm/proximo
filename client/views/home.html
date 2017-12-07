@@ -1,6 +1,7 @@
 <script>
   $(document).ready(function(){
-
+      $("#sidenav-overlay").fadeOut(300, function() {
+        $(this).remove(); });
   $('select').material_select();
 
 });

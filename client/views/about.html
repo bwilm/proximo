@@ -1,9 +1,12 @@
 <script>
-  $(document).ready(function(){
+    $(document).ready(function(){
+        $("#sidenav-overlay").fadeOut(300, function() {
+          $(this).remove(); });
+        $(".button-collapse").sideNav();
 
-     $(".button-collapse").sideNav();
+        $('.parallax').parallax();
 
-     $('.parallax').parallax();
+        $('.lean-overlay').remove();
 
 
   });
@@ -18,8 +21,8 @@
 <li><a href="/about"><i class="material-icons">live_help</i></a></li>
 </ul>
 <ul id="mobile-demo" class="side-nav pink darken-2">
-  <li><a style="color:white"href="/">home</a></li>
-  <li><a style="color:white"href="/about">about</a></li>
+  <li><a class="mobile-link" style="color:white"href="/" data-dismiss="sidenave-overlay">home</a></li>
+  <li><a class="mobile-link" style="color:white"href="/about">about</a></li>
 
 
 </ul>
