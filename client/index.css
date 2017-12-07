@@ -1,4 +1,5 @@
 body {
+  background: linear-gradient(to bottom, #c94b4b, #4b134f);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
