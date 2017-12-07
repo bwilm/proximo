@@ -6,7 +6,9 @@ const prerender = require('prerender-node');
 import check from './middleware/assetcheck.mw';
 import api from './api';
 
+
 let app = express();
+
 let clientPath = path.join(__dirname, '../client');
 
 prerender.set('prerenderToken', process.env.PRERENDER_TOKEN);

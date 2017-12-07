@@ -22,7 +22,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('ResultController', [function() {
 
     }])
-    .controller('SettingsController', ['$scope', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $location, GeolocationService, PlacesService, Places) {
+    .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
 
         $scope.start = function() {
             let coords = GeolocationService.getCoordinates();
@@ -31,7 +31,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 address: $scope.here || '',
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
-                radius: '500',
+                radius: '5000',
                 type: 'restaurant',
                 keywords: []
             })

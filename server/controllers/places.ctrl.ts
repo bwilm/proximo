@@ -17,7 +17,6 @@ router.route('/:id')
 router.route('/')
     .post((req, res) => {
         if (req.body.address) {
-            console.log('has address')
             places.getCoords(req.body)
             .then(placeList => {
                 let response = {
@@ -31,7 +30,6 @@ router.route('/')
 
 
         } else {
-            console.log('has no address')
             places.hasCoords(req.body)
             .then(placeList => {
                 let response = {
