@@ -4,6 +4,19 @@
     $(this).remove(); });
   $('select').material_select();
 
+    const body = document.querySelector('body');
+    const html = document.querySelector('html');
+    const toggleBody = document.querySelector('.toggle-body');
+    const toggleBtn = document.querySelector('.toggle-btn');
+
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('background--on');
+      body.classList.toggle('background--on');
+      toggleBody.classList.toggle('toggle-body--on');
+      toggleBtn.classList.toggle('toggle-btn--on');
+      toggleBtn.classList.toggle('toggle-btn--scale');
+});
+
 });
 </script>
 
@@ -18,10 +31,128 @@
   });
 </script>
 
+<style>
+.background {
+width: 20vw;
+height: 20vh;
+position: relative;
+background: linear-gradient(to bottom, #c94b4b, #4b134f);
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
+.background--on {
+background: linear-gradient(to bottom, #220022, #4b134f);
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
+.toggle-body {
+width: 4em;
+height: 2em;
+position: absolute;
+top: 1em;
+right: 1em;
+background: white;
+border-radius: 1em;
+-webkit-animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+      animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
+.toggle-body--on {
+-webkit-animation: angle 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+      animation: angle 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-animation-direction: alternate;
+      animation-direction: alternate;
+}
+
+.toggle-btn {
+width: 1em;
+height: 1em;
+position: absolute;
+top: calc(50% - 1em / 2);
+left: calc(27% - 1em / 2);
+background: white;
+border-radius: 1em;
+background: #c94b4b;
+cursor: pointer;
+-webkit-transform: translateX(0);
+      transform: translateX(0);
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
+.toggle-btn--on {
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-transform: translateX(150%);
+      transform: translateX(150%);
+background: #110011;
+}
+
+@-webkit-keyframes angle {
+0% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+50% {
+-webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+}
+100% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+}
+
+@keyframes angle {
+0% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+50% {
+-webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+}
+100% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+}
+@-webkit-keyframes angle-reverse {
+0% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+50% {
+-webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+}
+100% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+}
+@keyframes angle-reverse {
+0% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+50% {
+-webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+}
+100% {
+-webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+}
+}
+</style>
 
 <nav>
 <div class="nav-wrapper pink darken-4 ">
 <a href="/home" class="brand-logo pacifico">Próximo</a>
+
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul id="nav-mobile" class="right hide-on-med-and-down">
 <li><a href="/home"><i class="material-icons">home</i></a></li>
@@ -35,9 +166,13 @@
 </ul>
 </div>
 </nav>
-
+<div class="toggle-body">
+  <div class="toggle-btn"></div>
+</div>
 
 <div class="home animate-in" style="height:100vh; max-width: 700px; margin: 0 auto; inline">
+
+
 
 
 

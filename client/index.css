@@ -40,6 +40,12 @@ html, body {
   overflow-x: hidden;
 }
 
+.background--on {
+background: linear-gradient(to bottom, #110011, #4b134f);
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -54,6 +60,7 @@ main {
 .pacifico{
 
   font-family: 'Pacifico', cursive;
+  text-shadow: .1em .12em rgba(22, 00, 22, .1);
 }
 
 @media (min-width: 700px) {
