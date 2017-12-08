@@ -9,6 +9,7 @@
     const toggleBody = document.querySelector('.toggle-body');
     const toggleBtn = document.querySelector('.toggle-btn');
     const myStorage = window.localStorage;
+    let settings = JSON.parse(myStorage.getItem('proximoSettings'));
 
     if (settings.type === 'restaurant') {
         html.classList.remove('background--on');
