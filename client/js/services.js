@@ -70,7 +70,6 @@ angular.module('proximo.services', [])
 
                 for (let i = 0; i < places.length; i++){
                     if (places[i].photos) {
-                        console.log(places[i].photos)
                         for (let j = 0; j < places[i].photos.length; j++) {
                             images.push({
                                 placeId: places[i].place_id,

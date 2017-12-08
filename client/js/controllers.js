@@ -75,12 +75,13 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         let myStorage = window.localStorage;
         let images = JSON.parse(myStorage.getItem('proximoImages'));
         let positives = [];
+        $scope.settings = JSON.parse(myStorage.getItem('proximoSettings'));
+        console.log($scope.settings);
 
 
         $scope.nextImage = function() {
             // $scope.placeImage = $rootScope.images.shift();
             currentImage = images.shift();
-            console.log(isGreater(currentImage.width, currentImage.height));
 
             $scope.image = {
                 url: "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo",
