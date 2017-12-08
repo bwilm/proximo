@@ -11,9 +11,12 @@
     const myStorage = window.localStorage;
     let settings = JSON.parse(myStorage.getItem('proximoSettings'));
 
-    if (settings.type === 'restaurant') {
-        html.classList.remove('background--on');
+    if (settings) {
+      if (settings.type === 'restaurant') {
+          html.classList.remove('background--on');
+      }
     }
+      
 
     toggleBtn.addEventListener('click', () => {
       html.classList.toggle('background--on');
