@@ -14,7 +14,10 @@
     if (settings) {
       if (settings.type === 'restaurant') {
           html.classList.remove('background--on');
-      }
+      };
+    } else {
+      settings = {};
+      settings.type = 'restaurant';
     }
       
 
