@@ -49,19 +49,20 @@
 </ul>
 </div>
 </nav>
+<div class="animate-in">
 <div class="white-text">
-    Showing: {{ settings.address }}
+    Showing: {{ settings.address || 'nearby' }}
 </div>
-<div class="home" style="height:100vh; max-width: 700px; margin: 0 auto; background: transparent;inline ">
+<div class="home" style="height:100vh; max-width: 700px; margin: 0 auto; background: transparent; color: transparent; ">
 <!-- <div  style="padding-top: .5em; margin-bottom: 0px;"class="row">
   <a  style="float: right; margin-right: 5px;"><i class="material-icons"style="color:white;">live_help</i></a>
 </div> -->
 <div style="margin-top: 0em; width: 100%; background: transparent;"class="row">
-        <div style="width: 100%; margin: 0 0 0 0; padding: 0 0 0 0; background: transparent;"class="col s6 m7">
+        <div style="width: 100%; margin: 0 0 0 0; padding: 0 0 0 0; background: transparent; color: transparent;"class="col s6 m7">
           <div style="width: 100%; overflow:hidden; background: transparent; margin: 0 0 0 0;" class="card" >
-            <div style="padding: 0 0 0 0; margin: 0 0 0 0; background: transparent;" class="card-image white ">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; background: transparent; color: transparent;" class="card-image white ">
 
-<div style="position: relative; overflow:hidden; margin: 0 0 0 0; width: 100%; height: 400px; display: block; background: transparent;"
+<div style="position: relative; overflow:hidden; margin: 0 0 0 0; width: 100%; height: 400px; display: block; background: transparent; color: transparent;"
      class="container" id="wrapper">
               <img class="main-image" ng-class="{'wide-image': image.isWide, 'normal-image': !image.isWide}" ng-src="{{ image.url }}" ng-style="{'width': '{{ image.dimension * 400}}px !important'}">
 
@@ -76,6 +77,7 @@
       <button style=" float: right; margin-right: 0.5em;"class="btn-large waves-effect waves-light green col s5" ng-click="positive()"><i class="material-icons">sentiment_very_satisfied</i></button>
 
     </div>
+</div>
 
 
 
@@ -103,6 +105,12 @@
         min-width: 100%;
 
         /*border: green 4px solid;*/
+    }
+
+    @media (min-width: 700px) {
+        .wide-image {
+            height: 700px
+        }
     }
 
 </style>
