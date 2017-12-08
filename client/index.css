@@ -1,9 +1,23 @@
-.home2{
+/*.home2{
 
-  background-image: url("images/foodpaper.jpg")
+  background-image: url("images/foodpaper.png");
+  background-size: contain;
+  opacity: 0.4;
+  z-index: -1;
+
+}*/
+.foodwrapper{
+position:absolute;
+top: 0;
+left: 0;
+opacity: .2;
+z-index: 0;
+width: 100%;
+height: 100vh;
+background-size: cover;
+background-image: url("images/foodpaper.png");
 
 }
-
 html, body {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
   /*display: flex;*/
