@@ -60,15 +60,12 @@
   </div>
     <!--carousel html ends here  -->
 
-    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 4em; padding-top:0em;"class="card-content z-depth-5">
+    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 4em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
       <div class="row">
-      <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse"><i class="material-icons left">check</i>WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"></i></span>
+      <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse">WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"><i class="material-icons" style="position:relative; font-size:.4em; top:-15%;">add</i></i></span>
     </div>
     <div class="row">
-        <div style="color: darkgreen;">
-            <a style="color: inherit;" ng-href="{{ match.url }}"><i style="color: navyblue; width: 10px;" class="material-icons">directions</i></a>
-        </div>
-    <div class="col 3"> <span><h5>{{match.name}}</h5></span> </div>
+    <div class="col 3" style="max-width: 60%;"> <span><h5 style="margin-top: 0;">{{match.name}}</h5></span> </div>
     <div style="float: right" class="col 2"> <span><h3 style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px;margin-right:2px;"class="material-icons">star_rate</i></h3></span></div>
   </div>
 </div>
@@ -81,8 +78,14 @@
       <li class="collection-item">  {{ match.name }}</li>
 
 
-
-      <li class="collection-item"> {{ match.address }}</li>
+      <a target="_blank" style="color: inherit;" ng-href="{{ match.url }}">
+      <li class="collection-item">
+           {{ match.address }}
+           <div style="color: darkgreen; float: right;">
+               <i style="color: navyblue; width: 10px;" class="material-icons">directions</i>
+           </div>
+       </li>
+       </a>
 
 
       <li class="collection-item">  {{ match.phone }}</li>
@@ -96,6 +99,7 @@
     <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
         {{ match.price }}
     </div>
+
   </li>
 
 

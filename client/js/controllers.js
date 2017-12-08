@@ -61,7 +61,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
                 radius: $scope.range || '500',
-                type: 'restaurant',
+                type: 'bar',
                 keywords: ['-hotel']
             }));
 

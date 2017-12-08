@@ -24,17 +24,17 @@
 </ul>
 </div>
 </nav>
-<div class="home" style="height:100vh; margin: 0px; margin-left: 0px; inline ">
+<div class="" style="height:100vh; max-width: 800px; ;margin: 0 auto; background-color: transparent;inline ">
 <div  style="padding-top: 1em; margin-bottom: 0px;"class="row">
   <a  style="float: right; margin-right: 5px;"><i class="material-icons"style="color:white;">live_help</i></a>
 </div>
 <div style="margin-top: 0em; width: 100%;"class="row">
-        <div style="width: 100%; margin: 0 0 0 0; padding: 1em 0 0 0;"class="col s6 m7">
-          <div style="width: 100%"class="card" overflow:"hidden">
-            <div style="padding: 0 0 0 0; margin: 0 0 0 0;" class="card-image white ">
+        <div style="width: 100%; margin: 0 0 0 0; padding: 1em 0 0 0; background-color: transparent;"class="col s6 m7">
+          <div style="width: 100%; overflow:hidden; background-color: transparent;" class="card" >
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; background: transparent;" class="card-image white ">
 
-<div style="overflow:hidden; margin: 0 0 0 0; width: 100%; max-height: 400px;" class="container" >
-              <img class="main.img" ng-src="{{ imageUrl }}" style="border-radius: 0" width:"100%" height:"auto"; max-height:"400px"overflow:"hidden"; margin-top: "0em">
+<div style="position: relative; overflow:hidden; margin: 0 0 0 0; width: 100%; max-height: 400px; background-color: transparent; display: block;" class="container" >
+              <img class="main.img" ng-src="{{ imageUrl }}" style="position: relative; bottom: 0; right: 0; border-radius: 0; width:100% height:auto; overflow:hidden; margin-top: 50%; transform: translateY(-50%); display: block;">
 
           </div>
         </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-    <div style="width:100%; position: absolute; bottom: 4em;"class="row">
+    <div style="width:100%; max-width:800px;position: absolute; bottom: 0em;"class="row">
       <button style=" float: left; margin-left: 0.5em;"class="waves-effect waves-light btn-large red col s5" ng-click="nextImage()"><i class="material-icons">not_interested</i></button>
       <button style=" float: right; margin-right: 0.5em;"class="btn-large waves-effect waves-light green col s5" ng-click="positive()"><i class="material-icons">sentiment_very_satisfied</i></button>
 
