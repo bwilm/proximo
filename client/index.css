@@ -1,9 +1,10 @@
-body {
+html, body {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
-  display: flex;
+  /*display: flex;*/
   min-height: 100vh;
-  flex-direction: column;
-  width: 100%;
+  /*flex-direction: column;*/
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 main {
@@ -13,10 +14,20 @@ main {
   min-height: inherit;
 }
 
-.home{
+.container {
+    max-height: 400px;
+}
 
-  background: linear-gradient(to bottom, #c94b4b, #4b134f);
-   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@media (min-width: 800px) {
+    .container {
+        max-height: 700px;
+    }
+}
+
+
+.home{
+    /*background: linear-gradient(to bottom, #c94b4b, #4b134f);*/
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
@@ -24,6 +35,12 @@ main {
 .pacifico{
 
   font-family: 'Pacifico', cursive;
+}
+
+@media (min-width: 800px) {
+    .brand-logo.pacifico {
+        margin-left: 45%;
+    }
 }
 
 .btn{
