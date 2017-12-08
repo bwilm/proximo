@@ -15,6 +15,16 @@
       toggleBody.classList.toggle('toggle-body--on');
       toggleBtn.classList.toggle('toggle-btn--on');
       toggleBtn.classList.toggle('toggle-btn--scale');
+
+      const myStorage = window.localStorage;
+
+      let settings = JSON.parse(myStorage.getItem('proximoSettings'));
+      if (settings.type === 'restaurant') {
+          settings.type = 'bar';
+      } else if (settings.type === 'bar') {
+          settings.type = 'restaurant';
+      }
+      myStorage.setItem('proximoSettings', JSON.stringify(settings));
 });
 
 });
