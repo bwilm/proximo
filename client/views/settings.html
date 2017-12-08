@@ -8,6 +8,11 @@
     const html = document.querySelector('html');
     const toggleBody = document.querySelector('.toggle-body');
     const toggleBtn = document.querySelector('.toggle-btn');
+    const myStorage = window.localStorage;
+
+    if (settings.type === 'restaurant') {
+        html.classList.remove('background--on');
+    }
 
     toggleBtn.addEventListener('click', () => {
       html.classList.toggle('background--on');
@@ -59,7 +64,7 @@ transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 .toggle-container {
     position: absolute;
     top: 1em;
-    right: 1em;
+    right: 2.2em;
 }
 
 .toggle-body {
@@ -84,7 +89,7 @@ width: 1em;
 height: 1em;
 position: absolute;
 top: calc(50% - 1em / 2);
-left: calc(27% - 1em / 2);
+left: calc(37% - 1em / 2);
 background: white;
 border-radius: 1em;
 background: #c94b4b;
@@ -98,8 +103,8 @@ transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 .toggle-btn--on {
 -webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
--webkit-transform: translateX(150%);
-      transform: translateX(150%);
+-webkit-transform: translateX(100%);
+      transform: translateX(100%);
 background: #110011;
 }
 
@@ -166,6 +171,15 @@ background: #110011;
 <div class="nav-wrapper pink darken-4 ">
 <a href="/home" class="brand-logo pacifico">Próximo</a>
 
+<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: 1.2em .5em 0 .2em; padding: 0; background-image: url(images/martini.png); background-size: contain; background-repeat: no-repeat;">
+    <!-- <img src="images/martini.png" height: '10' width: '10'> -->
+</div>
+
+<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: 1.2em 4.5em 0 0; padding: 0; background-image: url(images/burger.png); background-size: contain; background-repeat: no-repeat;">
+</div>
+
+
+
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul id="nav-mobile" class="right hide-on-med-and-down">
   <div style="padding-right:5em">
@@ -181,14 +195,15 @@ background: #110011;
 </ul>
 </div>
 </nav>
+
 <div class="toggle-container">
-<div class="toggle-body">
-  <div class="toggle-btn"></div>
+
+    <div class="toggle-body">
+        <div class="toggle-btn"></div>
+    </div>
+
 </div>
-<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: .3em 0 0 .2em; padding: 0; background-image: url(images/martini.png); background-size: contain; background-repeat: no-repeat;">
-    <!-- <img src="images/martini.png" height: '10' width: '10'> -->
-</div>
-</div>
+
 
 <div class="home animate-in" style="height:100vh; max-width: 700px; margin: 0 auto; inline">
 

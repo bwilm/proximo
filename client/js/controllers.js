@@ -22,10 +22,8 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             price += '$';
         }
         $scope.match.price = price;
-        console.log($scope.match);
 
         $scope.reject = function() {
-            console.log('1')
             let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
 
             if (rejects) {
@@ -35,7 +33,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             }
 
             myStorage.setItem('proximoRejects', JSON.stringify(rejects));
-            console.log('2')
             PlacesService.setPlaces();
 
         }
@@ -76,7 +73,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         let images = JSON.parse(myStorage.getItem('proximoImages'));
         let positives = [];
         $scope.settings = JSON.parse(myStorage.getItem('proximoSettings'));
-        console.log($scope.settings);
 
 
         $scope.nextImage = function() {
