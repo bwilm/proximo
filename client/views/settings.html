@@ -56,13 +56,16 @@ background: linear-gradient(to bottom, #220022, #4b134f);
 -webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 }
+.toggle-container {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
 
 .toggle-body {
+float: left;
 width: 4em;
 height: 2em;
-position: absolute;
-top: 1em;
-right: 1em;
 background: white;
 border-radius: 1em;
 -webkit-animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
@@ -178,12 +181,13 @@ background: #110011;
 </ul>
 </div>
 </nav>
-
+<div class="toggle-container">
 <div class="toggle-body">
   <div class="toggle-btn"></div>
 </div>
-<div style="position: absolute; right: 1em; top 1em; color: white;">
-    <img src="images/beer.png">
+<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: .3em 0 0 .2em; padding: 0; background-image: url(images/martini.png); background-size: contain; background-repeat: no-repeat;">
+    <!-- <img src="images/martini.png" height: '10' width: '10'> -->
+</div>
 </div>
 
 <div class="home animate-in" style="height:100vh; max-width: 700px; margin: 0 auto; inline">
