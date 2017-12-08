@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const email_svc_1 = require("../Services/email.svc");
+const email_svc_1 = require("../services/email.svc");
 const router = express_1.Router();
 router.route('/')
     .post((req, res) => {
