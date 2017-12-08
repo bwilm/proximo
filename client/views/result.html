@@ -72,14 +72,14 @@
 
   <!--reveal  -->
       <div class="card-reveal pink darken-2 pink-text home2">
-  <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right">close</i></span>
-<ul class="collection">
+  <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right white-text">close</i></span>
+<ul class="collection" style="border:none;">
 
-      <li class="collection-item">  {{ match.name }}</li>
+      <li class="collection-item" style="border: none;">  {{ match.name }}</li>
 
 
       <a target="_blank" style="color: inherit;" ng-href="{{ match.url }}">
-      <li class="collection-item">
+      <li class="collection-item" style="border: none;">
            {{ match.address }}
            <div style="color: darkgreen; float: right;">
                <i style="color: navyblue; width: 10px;" class="material-icons">directions</i>
@@ -88,14 +88,14 @@
        </a>
 
 
-      <li class="collection-item">  {{ match.phone }}</li>
+      <li class="collection-item" style="border: none;">  {{ match.phone }}</li>
 
-<li class="collection-item">
+<li class="collection-item" style="border: none;">
     <a ng-href="{{ match.website }}">
         {{ match.website }}
     </a>
   </li>
-  <li class="collection-item">
+  <li class="collection-item" style="border: none;">
     <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
         {{ match.price }}
     </div>
@@ -103,7 +103,7 @@
   </li>
 
 
-    <li style="padding-bottom:20px;"class="collection-item">
+    <li style="padding-bottom:20px;"class="collection-item" style="border: none;">
         <button style="width:100%" class="waves-effect waves-light btn red" ng-click="reject()">Not Interested<i style="color:; float: right"class="material-icons">not_interested</i></button>
       </li>
     </ul>

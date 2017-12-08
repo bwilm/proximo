@@ -29,7 +29,7 @@ main {
   font-family: 'Pacifico', cursive;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
     .container {
         max-height: 700px;
     }
@@ -112,7 +112,7 @@ main {
     to { opacity: 1; }
 }
 
-.main.img{
+.main-img{
 
 
   width: auto;

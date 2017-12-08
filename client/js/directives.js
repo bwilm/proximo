@@ -6,7 +6,9 @@ angular.module('proximo.directives', ['ngRoute', 'proximo.controllers'])
             element.css({
                 'background-image': 'url(' + url + ')',
                 'background-size': 'cover',
-                'background-repeat': 'no-repeat'
+                'background-repeat': 'no-repeat',
+                'background-position': 'center'
+
             })
         };
     }])

@@ -80,8 +80,13 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         $scope.nextImage = function() {
             // $scope.placeImage = $rootScope.images.shift();
             currentImage = images.shift();
+            console.log(isGreater(currentImage.width, currentImage.height));
 
-            $scope.imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
+            $scope.image = {
+                url: "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+currentImage.photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo",
+                isWide: isGreater(currentImage.width, currentImage.height),
+                dimension: currentImage.width/currentImage.height,
+            }
         }
 
         $scope.positive = function() {
@@ -108,6 +113,14 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 return null;
             } else {
                 return null;
+            }
+        }
+
+        function isGreater(first, second) {
+            if (first > second) {
+                return true;
+            } else {
+                return false;
             }
         }
 
