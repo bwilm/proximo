@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { sendEmail } from '../Services/email.svc';
+import { sendEmail } from '../services/email.svc';
 
 const router = Router();
 
