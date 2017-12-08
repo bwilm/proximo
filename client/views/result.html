@@ -1,0 +1,122 @@
+<script>
+  $(document).ready(function(){
+
+     $(".button-collapse").sideNav();
+
+     window.addEventListener("beforeunload", function(){
+       document.body.classList.add("animate-out");
+     });
+
+      $('.carousel.carousel-slider').carousel({fullWidth: true});
+  });
+</script>
+
+
+<nav style="width: 100%;">
+<div class="nav-wrapper pink darken-4 animate-in ">
+<a href="/home" class="brand-logo pacifico ">Próximo</a>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+<li><a href="/settings"><i class="material-icons">settings</i></a></li>
+<li><a href="/about"><i class="material-icons">live_help</i></a></li>
+</ul>
+<ul id="mobile-demo" class="side-nav pink darken-3 home2">
+  <li><a style="color:white"href="/settings">settings</a></li>
+  <li><a style="color:white"href="/about">about</a></li>
+</nav>
+
+<!-- <div style="margin-top: 5em"class="row">
+    <div class="col s12 m6">
+      <div class="card stick-action">
+        <div class="card-image">
+          <img src="images/clydes.jpg">
+          <span class="card-title">We Suggest {{result.name}} !</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light pink darken-4 pulse"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-action">
+          <a href="/main"> Remove this match</a>
+        </div>
+        <div class="card-reveal">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="home animate-in" style="100%; width: 100%; max-width: 700px; margin: 0 auto; inline ">
+
+  <div style="margin-top: 0em;"class="card sticky-action">
+    <div  style="margin-bottom: 0em;padding-bottom: 0em;"class="card-image waves-effect waves-block waves-light">
+  <!--Carousel for Images inserted here  -->
+
+
+  <div class="carousel carousel-slider center" data-indicators="true">
+
+   <div class="carousel-item pink darken-2 white-text" href="#one!" ng-repeat="photo in match.photos">
+
+     <div class="result-img" back-img="{{ photo.photo_reference }}" style="width: 100%; height: 100%;">
+   </div>
+ </div>
+    </div>
+  </div>
+    <!--carousel html ends here  -->
+
+    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
+      <div class="row">
+      <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse">WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"><i class="material-icons" style="position:relative; font-size:.4em; top:-15%;">add</i></i></span>
+    </div>
+    <div class="row">
+    <div class="col 3" style="max-width: 60%;"> <span><h5 style="margin-top: 0;">{{match.name}}</h5></span> </div>
+    <div style="float: right" class="col 2"> <span><h3  style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px;margin-right:2px;"class="material-icons">star_rate</i></h3></span></div>
+  </div>
+</div>
+
+  <!--reveal  -->
+      <div class="card-reveal pink darken-2 pink-text resultfoodwrapper">
+  <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right white-text">close</i></span>
+<ul class="collection" style="border:none;">
+
+      <li class="collection-item" style="border: none;">  {{ match.name }}</li>
+
+
+      <a target="_blank" style="color: inherit;" ng-href="{{ match.url }}">
+      <li class="collection-item" style="border: none;">
+           {{ match.address }}
+           <div style="color: darkgreen; float: right;">
+               <i style="color: navyblue; width: 10px;" class="material-icons">directions</i>
+           </div>
+       </li>
+       </a>
+
+
+      <li class="collection-item" style="border: none;">  {{ match.phone }}</li>
+
+<li class="collection-item" style="border: none;">
+    <a ng-href="{{ match.website }}">
+        {{ match.website }}
+    </a>
+  </li>
+  <li class="collection-item" style="border: none;">
+    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
+        {{ match.price }}
+    </div>
+
+  </li>
+
+
+    <li style="padding-bottom:20px;"class="collection-item" style="border: none;">
+        <button style="width:100%" class="waves-effect waves-light btn red" ng-click="reject()">Not Interested<i style="color:; float: right"class="material-icons">not_interested</i></button>
+      </li>
+    </ul>
+    </div>
+
+</div>
+
+  <!-- <div style="margin-top: 0.2em"class="row">
+     <div class="col s12 m5">
+       <div class="card-panel pink darken-3">
+         <span class="white-text">any information to put here?</span>
+       </div>
+     </div>
+   </div> -->
+ </div>
+</div>

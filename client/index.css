@@ -1,0 +1,185 @@
+/*.home2{
+
+  background-image: url("images/foodpaper.png");
+  background-size: contain;
+  opacity: 0.4;
+  z-index: -1;
+
+}*/
+.foodwrapper{
+position:absolute;
+top: 0;
+left: 0;
+opacity: .2;
+z-index: 0;
+width: 100%;
+height: 100vh;
+background-size: contain;
+background-image: url("images/foodpaper.png");
+
+}
+.resultfoodwrapper{
+  position:absolute;
+  top: 0;
+  left: 0;
+  opacity: 1.0;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("images/foodpaper.png");
+
+
+}
+html, body {
+  background: linear-gradient(to bottom, #c94b4b, #4b134f);
+  /*display: flex;*/
+  min-height: 100vh;
+  /*flex-direction: column;*/
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.background--on {
+background: linear-gradient(to bottom, #110011, #4b134f);
+-webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+}
+
+main {
+  flex: 1 0 auto;
+}
+.result.img{
+  min-height: inherit;
+}
+
+.container {
+    max-height: 400px;
+}
+
+.pacifico{
+
+  font-family: 'Pacifico', cursive;
+  text-shadow: .1em .12em rgba(22, 00, 22, .1);
+}
+
+@media (min-width: 700px) {
+    .container {
+        max-height: 700px;
+    }
+
+    .brand-logo.pacifico {
+        margin-left: 45%;
+    }
+
+    .home {
+    }
+}
+
+@media (min-width: 800px) {
+    .brand-logo.pacifico {
+        margin-left: 45%;
+    }
+}
+
+.home{
+    /*background: linear-gradient(to bottom, #c94b4b, #4b134f);*/
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.btn{
+
+  background-size: contain;
+}
+
+.fade-out.ng-hide {
+  opacity: 0;
+}
+
+.fade-out.ng-hide-add, .fade-out.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.check-element {
+  border: 1px solid black;
+  opacity: 1;
+  padding: 10px;
+}
+
+.animate-hide {
+ -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+  line-height:20px;
+  opacity:1;
+  padding:10px;
+  border:1px solid black;
+  background:white;
+  position: absolute;
+  left: 0;
+}
+
+.animate-hide.ng-hide {
+  left: -100%;
+  opacity:0;
+  padding:0 10px;
+}
+
+.animate-in {
+    -webkit-animation: fadeIn .5s ease-in;
+    animation: fadeIn .5s ease-in;
+}
+.animate-out {
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+    opacity: 0;
+}
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.main-img{
+
+
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 100px;
+
+}
+/*.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 25px;
+    background-color: white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 5px;
+    background: #c94b4b;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c94b4b;
+    cursor: pointer;
+}*/

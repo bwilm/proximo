@@ -1,0 +1,49 @@
+<script>
+    $(document).ready(function(){
+        $("#sidenav-overlay").fadeOut(300, function() {
+          $(this).remove(); });
+        $(".button-collapse").sideNav();
+
+        $('.parallax').parallax();
+
+        $('.lean-overlay').remove();
+
+
+  });
+</script>
+
+<nav>
+<div class="nav-wrapper pink darken-4 ">
+<a href="/home" class="brand-logo pacifico">Próximo</a>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+<li><a href="/settings"><i class="material-icons">settings</i></a></li>
+<li><a href="/about"><i class="material-icons">live_help</i></a></li>
+</ul>
+<ul id="mobile-demo" class="side-nav pink darken-2">
+  <li><a class="mobile-link" style="color:white"href="/settings" data-dismiss="sidenave-overlay">settings</a></li>
+  <li><a class="mobile-link" style="color:white"href="/about">about</a></li>
+
+
+</ul>
+</div>
+</nav>
+
+
+<div style="z-index: 1000;">
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/nashvilleskyline.jpg"></div>
+  </div>
+  <div class="section pink darken-4 home2">
+    <div class="row container">
+      <img src="images/logo-text.png" alt="">
+      <p class="white-text lighten-3">Made In Nashville // TN by:</p>
+      <p class="white-text">Ben White: Back End and API</p>
+      <p class="white-text">Brandon Wilmott: Lead UI and UX designer</p>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/nashville2.jpg"></div>
+  </div>
+</div>
+</div>

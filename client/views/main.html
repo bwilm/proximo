@@ -1,0 +1,116 @@
+<script>
+  $(document).ready(function(){
+
+     $(".button-collapse").sideNav();
+
+     var imageWidth, imageHeight, wrapperWidth, wrapperHeight, overlapWidth, overlapHeight, container = $('.container');
+
+
+      function centerImage() {
+       imageWidth = container.find('img').width();
+       wrapperWidth = container.width();
+       imageHeight = container.find('img').height();
+       wrapperHeight = container.height();
+       overlapWidth = (wrapperWidth - imageWidth)/2;
+       overlapHeight = (wrapperHeight - imageHeight)/2;
+       console.log(overlapWidth);
+       console.log(overlapHeight);
+       container.find('img').css('margin-left', overlapWidth);
+       container.find('img').css('margin-top', overlapHeight);
+      }
+
+      $(window).on("load resize", centerImage);
+
+      var el = document.getElementById('wrapper');
+      if (el.addEventListener) {
+        el.addEventListener("webkitTransitionEnd", centerImage, false); // Webkit event
+        el.addEventListener("transitionend", centerImage, false); // FF event
+        el.addEventListener("oTransitionEnd", centerImage, false); // Opera event
+      }
+
+     window.addEventListener("beforeunload", function(){
+       document.body.classList.add("animate-out");
+     });
+  });
+</script>
+
+<nav>
+<div class="nav-wrapper pink darken-4 animate-in ">
+<a href="/home" class="brand-logo pacifico">Próximo</a>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+<li><a href="/settings"><i class="material-icons">settings</i></a></li>
+<li><a href="/about"><i class="material-icons">live_help</i></a></li>
+</ul>
+<ul id="mobile-demo" class="side-nav pink darken-2">
+<li><a style="color:white"href="/settings">settings</a></li>
+<li><a style="color:white"href="/about">about</a></li>
+
+</ul>
+</div>
+</nav>
+<div class="animate-in">
+<!-- <div class="white-text">
+    Showing: {{ settings.address || 'nearby' }}
+</div> -->
+<div class="home" style="height:100vh; max-width: 700px; margin: 0 auto; background: transparent; color: transparent; ">
+<!-- <div  style="padding-top: .5em; margin-bottom: 0px;"class="row">
+  <a  style="float: right; margin-right: 5px;"><i class="material-icons"style="color:white;">live_help</i></a>
+</div> -->
+<div style="margin-top: 0em; width: 100%; background: transparent;"class="row">
+        <div style="width: 100%; margin: 0 0 0 0; padding: 0 0 0 0; background: transparent; color: transparent;"class="col s6 m7">
+          <div style="width: 100%; overflow:hidden; background: transparent; margin: 0 0 0 0;" class="card" >
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; background: transparent; color: transparent;" class="card-image white ">
+
+<div style="position: relative; overflow:hidden; margin: 0 0 0 0; width: 100%; height: 400px; display: block; background: transparent; color: transparent;"
+     class="container" id="wrapper">
+              <img class="main-image" ng-class="{'wide-image': image.isWide, 'normal-image': !image.isWide}" ng-src="{{ image.url }}" ng-style="{'width': '{{ image.dimension * 400}}px !important'}">
+
+          </div>
+        </div>
+
+          </div>
+        </div>
+      </div>
+    <div style="width:100%; max-width:700px;position: absolute; bottom: 0em;"class="row">
+      <button style=" float: left; margin-left: 0.5em;"class="waves-effect waves-light btn-large red col s5" ng-click="nextImage()"><i class="material-icons">not_interested</i></button>
+      <button style=" float: right; margin-right: 0.5em;"class="btn-large waves-effect waves-light green col s5" ng-click="positive()"><i class="material-icons">sentiment_very_satisfied</i></button>
+
+    </div>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+<style>
+    .main-image {
+        object-fit: cover;
+        border-radius: 0;
+        display: block;
+        background: transparent;
+        margin: auto;
+    }
+
+
+    .wide-image {
+        height: 400px;
+        /*border: red 4px solid;*/
+    }
+
+    .normal-image {
+        min-width: 100%;
+
+        /*border: green 4px solid;*/
+    }
+
+    @media (min-width: 700px) {
+        .wide-image {
+            height: 700px
+        }
+    }
+
+</style>
