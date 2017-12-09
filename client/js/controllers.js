@@ -6,6 +6,22 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         });
 
+        const body = document.querySelector('body');
+        const html = document.querySelector('html');
+        const myStorage = window.localStorage;
+        let settings = JSON.parse(myStorage.getItem('proximoSettings'));
+
+        if (settings) {
+            if (settings.type === 'restaurant') {
+              html.classList.remove('background--on');
+              body.classList.remove('background--on');
+            } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
+              html.classList.add('background--on');
+              body.classList.add('background--on');
+            }
+          
+          }
+
     }])
     .controller('AboutController', [function() {
 
@@ -41,13 +57,46 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
+       
+            const body = document.querySelector('body');
+            const html = document.querySelector('html');
+            const toggleBody = document.querySelector('.toggle-body');
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const myStorage = window.localStorage;
+            let settings = JSON.parse(myStorage.getItem('proximoSettings'));
+            $scope.here = settings.address || '';
+            $scope.range = settings.radius || '800';
+        
+            if (settings) {
+              if (settings.type === 'restaurant') {
+                html.classList.remove('background--on');
+                body.classList.remove('background--on');
+              } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
+                html.classList.add('background--on');
+                body.classList.add('background--on');
+              }
+            
+            } else {
+              settings = {
+                type: 'restaurant'
+              };
+            }
+              
+            console.log(settings.type);
+            $scope.toggleMode = function() {
+                html.classList.toggle('background--on');
+                body.classList.toggle('background--on');
+                toggleBody.classList.toggle('toggle-body--on');
+                toggleBtn.classList.toggle('toggle-btn--on');
+                toggleBtn.classList.toggle('toggle-btn--scale');
 
-        let myStorage = window.localStorage;
-        settings = JSON.parse(myStorage.getItem('proximoSettings'));
-
-
-        $scope.here = settings.address || '';
-        $scope.range = settings.radius || '800';
+                if (settings.type === 'restaurant') {
+                    settings.type = 'bar';
+                } else if (settings.type === 'bar') {
+                    settings.type = 'restaurant';
+                }
+                console.log(settings.type);
+            }
 
         $scope.start = function() {
             let coords = GeolocationService.getCoordinates();
@@ -58,7 +107,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
                 radius: $scope.range || '500',
-                type: 'bar',
+                type: settings.type || 'restaurant',
                 keywords: ['-hotel']
             }));
 
