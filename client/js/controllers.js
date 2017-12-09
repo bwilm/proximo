@@ -46,7 +46,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         settings = JSON.parse(myStorage.getItem('proximoSettings'));
 
 
-        $scope.here = settings.address || '';
+        $scope.here = settings.address || 'restaurant';
         $scope.range = settings.radius || '800';
 
         $scope.start = function() {
