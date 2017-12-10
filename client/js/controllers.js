@@ -64,22 +64,30 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             const toggleBtn = document.querySelector('.toggle-btn');
             const myStorage = window.localStorage;
             let settings = JSON.parse(myStorage.getItem('proximoSettings'));
-            $scope.here = settings.address || '';
-            $scope.range = settings.radius || '800';
-        
+           
+            
             if (settings) {
               if (settings.type === 'restaurant') {
                 html.classList.remove('background--on');
                 body.classList.remove('background--on');
+                $scope.here = settings.address || '';
+                $scope.range = settings.radius || '800';
+                
               } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
                 html.classList.add('background--on');
                 body.classList.add('background--on');
+                
+                $scope.range = settings.radius || '800';
+                
               }
             
             } else {
               settings = {
                 type: 'restaurant'
               };
+              $scope.here = '';
+              $scope.range = '800';
+              
             }
               
             console.log(settings.type);
