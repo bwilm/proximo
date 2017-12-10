@@ -16,6 +16,31 @@
       document.body.classList.add("animate-out");
     });
 
+            const body = document.querySelector('body');
+            const html = document.querySelector('html');
+            const toggleBody = document.querySelector('.toggle-body');
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const myStorage = window.localStorage;
+            let settings = JSON.parse(myStorage.getItem('proximoSettings'));
+           
+            
+            if (settings) {
+              if (settings.type === 'restaurant') {
+                html.classList.remove('background--on');
+                body.classList.remove('background--on');
+                toggleBody.classList.remove('toggle-body--on');
+                toggleBtn.classList.remove('toggle-btn--on');
+                toggleBtn.classList.remove('toggle-btn--scale');
+                
+              } else if (settings.type === 'bar') {
+                html.classList.add('background--on');
+                body.classList.add('background--on');
+                toggleBody.classList.add('toggle-body--on');
+                toggleBtn.classList.add('toggle-btn--on');
+                toggleBtn.classList.add('toggle-btn--scale');
+                
+              }
+            }
      $(".button-collapse").sideNav();
   });
 </script>

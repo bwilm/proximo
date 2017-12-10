@@ -72,7 +72,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 body.classList.remove('background--on');
                 toggleBody.classList.remove('toggle-body--on');
                 toggleBtn.classList.remove('toggle-btn--on');
-                toggleBtn.classList.add('toggle-btn--scale');
+                toggleBtn.classList.remove('toggle-btn--scale');
                 $scope.here = settings.address || '';
                 $scope.range = settings.radius || '800';
                 
@@ -81,7 +81,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 body.classList.add('background--on');
                 toggleBody.classList.add('toggle-body--on');
                 toggleBtn.classList.add('toggle-btn--on');
-                toggleBtn.classList.remove('toggle-btn--scale');
+                toggleBtn.classList.add('toggle-btn--scale');
                 
                 $scope.range = settings.radius || '800';
                 
