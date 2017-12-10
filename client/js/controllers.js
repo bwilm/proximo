@@ -70,12 +70,18 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
               if (settings.type === 'restaurant') {
                 html.classList.remove('background--on');
                 body.classList.remove('background--on');
+                toggleBody.classList.remove('toggle-body--on');
+                toggleBtn.classList.remove('toggle-btn--on');
+                toggleBtn.classList.remove('toggle-btn--scale');
                 $scope.here = settings.address || '';
                 $scope.range = settings.radius || '800';
                 
               } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
                 html.classList.add('background--on');
                 body.classList.add('background--on');
+                toggleBody.classList.add('toggle-body--on');
+                toggleBtn.classList.add('toggle-btn--on');
+                toggleBtn.classList.add('toggle-btn--scale');
                 
                 $scope.range = settings.radius || '800';
                 
