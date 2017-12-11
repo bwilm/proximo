@@ -105,13 +105,16 @@
     </div>
 
   </li>
-  <ul ng-repeat="review in match.reviews"class="collapsible collapsible-item" data-collapsible="accordian">
-    <li style="margin:0;">
-  <div style="width: 100%;"class="collapsible-header"><i class=""><img style="height:40px; width: 40px;"src="{{review.profile_photo_url}}" alt=""></i>{{review.author_name}}<div style="right:0; margin-left: 45%;"><span style="right:0">{{review.rating}} / 5</span></div></div>
-  <div class="collapsible-body white"><span>{{review.text}}</span></div>
+  <li ng-repeat="review in match.reviews" style="border: none;">
+      <ul class="collapsible collapsible-item" data-collapsible="accordian" style="margin: 0; border: none;">
+        <li style="margin:0; border: none;">
+            <div style="width: 100%;"class="collapsible-header">
+              <i class=""><img style="height:40px; width: 40px;" src="{{review.profile_photo_url}}" alt=""></i><div style="width: 100%;"><div style="float: left; margin-left: 2em;"> {{review.author_name}}</div><div style="float: right;"><span style="right:0">{{review.rating}} / 5</span></div></div></div>
+              <div class="collapsible-body white"><span>{{review.text}}</span>
+            </div>
+        </li>
+    </ul>
 </li>
-</ul>
-
 
     <li style="padding-bottom:20px;"class="collection-item" style="border: none;">
         <button style="width:100%" class="waves-effect waves-light btn red" ng-click="reject()">Not Interested<i style="color:; float: right"class="material-icons">not_interested</i></button>
