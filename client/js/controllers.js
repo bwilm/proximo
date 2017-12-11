@@ -120,7 +120,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 address: $scope.here || '',
                 lat: coords.lat || 0,
                 lng: coords.lng || 0,
-                radius: $scope.range || '500',
+                radius: $scope.range || '800',
                 type: settings.type || 'restaurant',
                 keywords: ['-hotel']
             }));

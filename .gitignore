@@ -4,3 +4,4 @@ server/*/*.js
 variables
 npm-debug.log
 .DS_Store
+Procfile
