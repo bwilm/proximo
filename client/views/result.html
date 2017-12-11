@@ -8,6 +8,10 @@
      });
 
       $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+      $(document).ready(function(){
+  $('.collapsible').collapsible();
+});
   });
 </script>
 
@@ -101,9 +105,12 @@
     </div>
 
   </li>
-  <li ng-repeat="review in match.reviews">
-      {{review}}
-  </li>
+  <ul ng-repeat="review in match.reviews"class="collapsible collapsible-item" data-collapsible="accordian">
+    <li style="margin:0;">
+  <div style="width: 100%;"class="collapsible-header"><i class=""><img style="height:40px; width: 40px;"src="{{review.profile_photo_url}}" alt=""></i>{{review.author_name}}<div style="right:0; margin-left: 45%;"><span style="right:0">{{review.rating}} / 5</span></div></div>
+  <div class="collapsible-body white"><span>{{review.text}}</span></div>
+</li>
+</ul>
 
 
     <li style="padding-bottom:20px;"class="collection-item" style="border: none;">
