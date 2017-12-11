@@ -1,5 +1,5 @@
-angular.module('proximo.services', [])
-    .service('GeolocationService', ['$http', function($http) {
+angular.module('proximo.services', ['ngResource', 'ngRoute'])
+    .service('GeolocationService', [ '$rootScope', '$location', function($rootScope, $location) {
 
         let coords = {};
         let places;
@@ -9,13 +9,22 @@ angular.module('proximo.services', [])
             getCoordinates: getCoordinates
         }
 
-        function setCoordinates(callbackFunction) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                coords = {
+        function setCoordinates() {
+
+            $location.url('/loadscreen');
+
+            let myStorage = window.localStorage;
+            console.log('start')
+
+            return navigator.geolocation.getCurrentPosition(function(position) {
+                console.log(position)
+                myStorage.setItem('proximoCoords', JSON.stringify({
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
-                };
-                callbackFunction();
+                }));
+                console.log('moving to settings');
+                $location.path('/settings');
+                $rootScope.$apply();
             });
         };
 

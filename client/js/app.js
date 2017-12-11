@@ -21,13 +21,9 @@ angular.module('proximo', ['ngAnimate','ngRoute', 'ngResource', 'proximo.control
                 templateUrl: 'views/settings.html',
                 controller: 'SettingsController'
             })
-            .when('/test', {
-                templateUrl: 'views/test.html',
-
-            })
             .when('/loadscreen', {
                 templateUrl: 'views/loadscreen.html',
-
+                controller: 'LoadingController'
             })
             .otherwise({
                 redirectTo: '/'

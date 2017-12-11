@@ -1,10 +1,7 @@
 angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
-    .controller('HomeController', ['$scope', 'GeolocationService', 'Places',function($scope, GeolocationService, Places) {
+    .controller('HomeController', ['$scope', '$location',  'GeolocationService', 'Places',function($scope, $location, GeolocationService, Places) {
 
-        GeolocationService.setCoordinates(function() {
-            $scope.coords = GeolocationService.getCoordinates();
 
-        });
 
         const body = document.querySelector('body');
         const html = document.querySelector('html');
@@ -19,8 +16,21 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
               html.classList.add('background--on');
               body.classList.add('background--on');
             }
-          
+
           }
+        console.log('hi');
+
+        $scope.start = function() {
+            console.log('hi')
+            GeolocationService.setCoordinates();
+        }
+
+    }])
+    .controller('LoadingController', ['$location', 'GeolocationService', function($location, GeolocationService) {
+
+        // GeolocationService.setCoordinates(function() {
+        //     $location.url('/settings');
+        // });
 
     }])
     .controller('AboutController', [function() {
@@ -57,15 +67,15 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
-       
+
             const body = document.querySelector('body');
             const html = document.querySelector('html');
             const toggleBody = document.querySelector('.toggle-body');
             const toggleBtn = document.querySelector('.toggle-btn');
             const myStorage = window.localStorage;
             let settings = JSON.parse(myStorage.getItem('proximoSettings'));
-           
-            
+
+
             if (settings) {
               if (settings.type === 'restaurant') {
                 html.classList.remove('background--on');
@@ -75,27 +85,27 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 toggleBtn.classList.remove('toggle-btn--scale');
                 $scope.here = settings.address || '';
                 $scope.range = settings.radius || '800';
-                
+
               } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
                 html.classList.add('background--on');
                 body.classList.add('background--on');
                 toggleBody.classList.add('toggle-body--on');
                 toggleBtn.classList.add('toggle-btn--on');
                 toggleBtn.classList.add('toggle-btn--scale');
-                
+
                 $scope.range = settings.radius || '800';
-                
+
               }
-            
+
             } else {
               settings = {
                 type: 'restaurant'
               };
               $scope.here = '';
               $scope.range = '800';
-              
+
             }
-              
+
             console.log(settings.type);
             $scope.toggleMode = function() {
                 html.classList.toggle('background--on');
@@ -126,6 +136,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             }));
 
             PlacesService.setPlaces();
+            $location.url('/loadscreen');
 
         }
 
