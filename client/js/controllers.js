@@ -47,6 +47,8 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         }
         $scope.match.price = price;
 
+        console.log($scope.match.reviews[0]);
+
         $scope.reject = function() {
             let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
 
