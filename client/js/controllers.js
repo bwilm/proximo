@@ -76,6 +76,10 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             let settings = JSON.parse(myStorage.getItem('proximoSettings'));
             $scope.coords = JSON.parse(myStorage.getItem('proximoCoords'));
 
+            if (!$scope.coords) {
+                $scope.coords = false;
+            }
+
             if (settings) {
               if (settings.type === 'restaurant') {
                 html.classList.remove('background--on');
