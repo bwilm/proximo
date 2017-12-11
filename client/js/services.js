@@ -25,6 +25,9 @@ angular.module('proximo.services', ['ngResource', 'ngRoute'])
                 console.log('moving to settings');
                 $location.path('/settings');
                 $rootScope.$apply();
+            }, function(err) {
+                $location.path('/settings');
+                $rootScope.$apply();
             });
         };
 

@@ -14,7 +14,8 @@ opacity: .2;
 z-index: 0;
 width: 100%;
 height: 100vh;
-background-size: contain;
+background-size: cover;
+background-repeat: no-repeat;
 background-image: url("images/foodpaper.png");
 
 }
@@ -27,11 +28,12 @@ background-image: url("images/foodpaper.png");
   width: 100%;
   height: 100vh;
   background-size: cover;
+  background-repeat: no-repeat;
   background-image: url("images/foodpaper.png");
 
 
 }
-html, body {
+html {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
   /*display: flex;*/
   min-height: 100vh;
@@ -53,8 +55,18 @@ main {
   min-height: inherit;
 }
 
+
 .container {
     max-height: 400px;
+}
+
+.start-btn {
+    width: 100%;
+}
+
+.message {
+    position: absolute;
+    bottom: 6em;
 }
 
 .pacifico{
@@ -73,13 +85,23 @@ main {
         left: 48%;
     }
 
+    .start-btn {
+        width: 20em;
+        margin-left: 30%;
+    }
+
+    .message {
+        margin-left: 30
+        right: 2em;
+    }
+
     .home {
     }
 
     #wrapper {
         min-height: 700px;
         box-shadow: 20px 20px 20px #000000;
-        padding 
+        padding
         background-image: transparent;
 
     }
