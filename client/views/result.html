@@ -64,7 +64,7 @@
   </div>
     <!--carousel html ends here  -->
 
-    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
+    <div style= "height: 30em;padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
       <div class="row">
       <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse">WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"><i class="material-icons" style="position:relative; font-size:.4em; top:-15%;">add</i></i></span>
     </div>
@@ -109,7 +109,7 @@
       <ul class="collapsible collapsible-item" data-collapsible="accordian" style="margin: 0; border: none;">
         <li style="margin:0; border: none;">
             <div style="width: 100%;"class="collapsible-header">
-              <i class=""><img style="height:40px; width: 40px;" src="{{review.profile_photo_url}}" alt=""></i><div style="width: 100%;"><div style="float: left; margin-left: 2em;"> {{review.author_name}}</div><div style="float: right;"><span style="right:0">{{review.rating}} / 5</span></div></div></div>
+              <i class=""><img style="height:40px; width: 40px;" ng-src="{{review.profile_photo_url}}" alt=""></i><div style="width: 100%;"><div style="float: left; margin-left: 2em;"> {{review.author_name}}</div><div style="float: right;"><span style="right:0">{{review.rating}} / 5</span></div></div></div>
               <div class="collapsible-body white"><span>{{review.text}}</span>
             </div>
         </li>

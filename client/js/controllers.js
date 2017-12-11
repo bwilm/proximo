@@ -129,9 +129,11 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
 
             let myStorage = window.localStorage;
-            let keywords = ["-hotel"].concat($scope.keywords);
-
-                console.log(keywords);
+            if ($scope.keywords) {
+                $scope.keywords = $scope.keywords.split(' ').concat(["-hotel -fast -gas"]);
+            } else {
+                $scope.keywords = ["-hotel -fast -gas"];
+            }
 
             myStorage.setItem('proximoSettings', JSON.stringify({
                 address: $scope.here || '',
@@ -139,7 +141,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 lng: $scope.coords.lng || '',
                 radius: $scope.range || '800',
                 type: settings.type || 'restaurant',
-                keywords: keywords
+                keywords: $scope.keywords
             }));
 
             PlacesService.setPlaces();
