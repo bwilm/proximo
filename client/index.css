@@ -69,17 +69,28 @@ main {
     }
 
     .brand-logo.pacifico {
-        margin-left: 45%;
+        position: absolute;
+        left: 48%;
     }
 
     .home {
     }
-}
 
-@media (min-width: 800px) {
-    .brand-logo.pacifico {
-        margin-left: 45%;
+    #wrapper {
+        min-height: 700px;
+        box-shadow: 20px 20px 20px #000000;
+        padding 
+        background-image: transparent;
+
     }
+
+    .main-image {
+
+    }
+
+
+
+
 }
 
 .home{
