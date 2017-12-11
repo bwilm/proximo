@@ -44,7 +44,7 @@
   </div> -->
 <div class="home animate-in" style="100%; width: 100%; max-width: 700px; margin: 0 auto; inline ">
 
-  <div style="margin-top: 0em;"class="card sticky-action">
+  <div style="margin: 0 0 2em 0;"class="card sticky-action">
     <div  style="margin-bottom: 0em;padding-bottom: 0em;"class="card-image waves-effect waves-block waves-light">
   <!--Carousel for Images inserted here  -->
 
@@ -100,6 +100,9 @@
         {{ match.price }}
     </div>
 
+  </li>
+  <li ng-repeat="review in match.reviews">
+      {{review}}
   </li>
 
 

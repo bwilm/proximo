@@ -77,6 +77,7 @@ function getPlaceDetails(placeId) {
             lng: response.data.result.geometry.location.lng,
             rating: response.data.result.rating,
             price: response.data.result.price_level,
+            reviews: response.data.result.reviews,
             photos: response.data.result.photos
         };
         return placeDetail;

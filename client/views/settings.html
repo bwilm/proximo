@@ -4,7 +4,7 @@
     $(this).remove(); });
   $('select').material_select();
 
-    
+
 
 });
 </script>
@@ -22,8 +22,8 @@
             const toggleBtn = document.querySelector('.toggle-btn');
             const myStorage = window.localStorage;
             let settings = JSON.parse(myStorage.getItem('proximoSettings'));
-           
-            
+
+
             if (settings) {
               if (settings.type === 'restaurant') {
                 html.classList.remove('background--on');
@@ -31,14 +31,14 @@
                 toggleBody.classList.remove('toggle-body--on');
                 toggleBtn.classList.remove('toggle-btn--on');
                 toggleBtn.classList.remove('toggle-btn--scale');
-                
+
               } else if (settings.type === 'bar') {
                 html.classList.add('background--on');
                 body.classList.add('background--on');
                 toggleBody.classList.add('toggle-body--on');
                 toggleBtn.classList.add('toggle-btn--on');
                 toggleBtn.classList.add('toggle-btn--scale');
-                
+
               }
             }
      $(".button-collapse").sideNav();
@@ -218,6 +218,11 @@ background: #110011;
           <input type="text" id="autocomplete-input" style="color: white;" class="autocomplete  " ng-model="here">
           <label class="white-text" for="autocomplete-input "></label>
         </div>
+        <div class="input-field col s12">
+          <i style="color: white; margin-top: 4px;" class="material-icons prefix ">tune</i>
+          <input type="text" style="color: white;" class="keywords" ng-model="keywords">
+          <label class="white-text" for="autocomplete-input "></label>
+        </div>
       </div>
     </div>
   </div>
@@ -252,7 +257,7 @@ background: #110011;
 
 <div class="row">
 
-  <button  style="margin-top: 0px; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5" ng-click="start()">Continue</button>
+  <button  style="margin-top: 0px; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5" ng-class="{disabled: (!coords.lat && !here) || !range}" ng-click="start()">Continue</button>
 
 </div>
 <script>

@@ -18,10 +18,8 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             }
 
           }
-        console.log('hi');
 
         $scope.start = function() {
-            console.log('hi')
             GeolocationService.setCoordinates();
         }
 
@@ -74,7 +72,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             const toggleBtn = document.querySelector('.toggle-btn');
             const myStorage = window.localStorage;
             let settings = JSON.parse(myStorage.getItem('proximoSettings'));
-
+            $scope.coords = JSON.parse(myStorage.getItem('proximoCoords'));
 
             if (settings) {
               if (settings.type === 'restaurant') {
@@ -106,7 +104,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
             }
 
-            console.log(settings.type);
             $scope.toggleMode = function() {
                 html.classList.toggle('background--on');
                 body.classList.toggle('background--on');
@@ -123,21 +120,29 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             }
 
         $scope.start = function() {
-            let coords = GeolocationService.getCoordinates();
+
 
             let myStorage = window.localStorage;
+            let keywords = ["-hotel"].concat($scope.keywords);
+
+                console.log(keywords);
+
             myStorage.setItem('proximoSettings', JSON.stringify({
                 address: $scope.here || '',
-                lat: coords.lat || 0,
-                lng: coords.lng || 0,
+                lat: $scope.coords.lat || '',
+                lng: $scope.coords.lng || '',
                 radius: $scope.range || '800',
                 type: settings.type || 'restaurant',
-                keywords: ['-hotel']
+                keywords: keywords
             }));
 
             PlacesService.setPlaces();
             $location.url('/loadscreen');
 
+        }
+
+        function splitString(keywordList) {
+            let arrayOfKeywords = keywordList.split(' ');
         }
 
     }])

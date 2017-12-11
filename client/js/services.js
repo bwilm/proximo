@@ -14,15 +14,12 @@ angular.module('proximo.services', ['ngResource', 'ngRoute'])
             $location.url('/loadscreen');
 
             let myStorage = window.localStorage;
-            console.log('start')
 
             return navigator.geolocation.getCurrentPosition(function(position) {
-                console.log(position)
                 myStorage.setItem('proximoCoords', JSON.stringify({
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 }));
-                console.log('moving to settings');
                 $location.path('/settings');
                 $rootScope.$apply();
             }, function(err) {
@@ -32,8 +29,12 @@ angular.module('proximo.services', ['ngResource', 'ngRoute'])
         };
 
         function getCoordinates() {
-            console.log(coords);
-            return coords;
+            if (coords.lat) {
+                return coords;
+            } else {
+                return null;
+            }
+
         }
 
     }])
