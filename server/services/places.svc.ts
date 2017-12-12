@@ -79,7 +79,6 @@ function getPlaceDetails(placeId: string): Promise<any> {
 
     return axios.get(url)
     .then(response => {
-        console.log(response.data.result)
         let placeDetail = {
             place_id: response.data.result.place_id,
             name: response.data.result.name,
