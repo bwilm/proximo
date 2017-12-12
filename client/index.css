@@ -35,11 +35,24 @@ background-image: url("images/foodpaper.png");
 }
 html {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
+  background-repeat: no-repeat;
+  background-size: cover;
   /*display: flex;*/
-  min-height: 100vh;
+  height: 100%;
   /*flex-direction: column;*/
-  max-width: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 .background--on {
@@ -200,6 +213,21 @@ main {
 
 .collection-item li {
     border-width: 0px;
+}
+
+#map {
+    width: 150px;
+    height: 150px;
+    float: left;
+    background-color: grey;
+}
+
+.hours {
+    font-size: .7em;
+    text-align: right;
+    line-height: 1.85em;
+    padding-left: 1em;
+    float: left;
 }
 /*.slider {
     -webkit-appearance: none;

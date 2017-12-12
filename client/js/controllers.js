@@ -38,6 +38,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         let myStorage = window.localStorage;
         $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
+        console.log($scope.match);
         for (let i = 0; i < $scope.match.photos.length; i++) {
             $scope.match.photos[i].photo_reference = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.match.photos[i].photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
@@ -46,8 +47,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             price += '$';
         }
         $scope.match.price = price;
-
-        console.log($scope.match.reviews[0]);
 
         $scope.reject = function() {
             let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
@@ -132,7 +131,7 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             if ($scope.keywords) {
                 $scope.keywords = $scope.keywords.split(' ').concat(["-hotel -fast -gas"]);
             } else {
-                $scope.keywords = ["-hotel -fast -gas"];
+                $scope.keywords = ["-hotel -fast"];
             }
 
             myStorage.setItem('proximoSettings', JSON.stringify({

@@ -65,7 +65,7 @@ function getPlaceDetails(placeId) {
     const url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=" + process.env.GOOGLE_PLACES_KEY;
     return axios_1.default.get(url)
         .then(response => {
-        // console.log(response.data.result)
+        console.log(response.data.result);
         let placeDetail = {
             place_id: response.data.result.place_id,
             name: response.data.result.name,
@@ -78,6 +78,7 @@ function getPlaceDetails(placeId) {
             rating: response.data.result.rating,
             price: response.data.result.price_level,
             reviews: response.data.result.reviews,
+            hours: response.data.result.opening_hours,
             photos: response.data.result.photos
         };
         return placeDetail;

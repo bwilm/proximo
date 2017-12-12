@@ -15,7 +15,7 @@
   });
 </script>
 
-
+<div class="home2" style="min-width: 100vw; min-height: 100vh;">
 <nav style="width: 100%;">
 <div class="nav-wrapper pink darken-4 animate-in ">
 <a href="/home" class="brand-logo pacifico ">Próximo</a>
@@ -46,7 +46,7 @@
       </div>
     </div>
   </div> -->
-<div class="home animate-in" style="100%; width: 100%; max-width: 700px; margin: 0 auto; inline ">
+<div class="animate-in" style="100%; width: 100%; max-width: 700px; margin: 0 auto;">
 
   <div style="margin: 0 0 2em 0;"class="card sticky-action">
     <div  style="margin-bottom: 0em;padding-bottom: 0em;"class="card-image waves-effect waves-block waves-light">
@@ -64,7 +64,7 @@
   </div>
     <!--carousel html ends here  -->
 
-    <div style= "height: 30em;padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
+    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
       <div class="row">
       <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse">WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"><i class="material-icons" style="position:relative; font-size:.4em; top:-15%;">add</i></i></span>
     </div>
@@ -72,6 +72,7 @@
     <div class="col 3" style="max-width: 60%;"> <span><h5 style="margin-top: 0;">{{match.name}}</h5></span> </div>
     <div style="float: right" class="col 2"> <span><h3  style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px;margin-right:2px;"class="material-icons">star_rate</i></h3></span></div>
   </div>
+
 </div>
 
   <!--reveal  -->
@@ -85,8 +86,10 @@
       <a target="_blank" style="color: inherit;" ng-href="{{ match.url }}">
       <li class="collection-item" style="border: none;">
            {{ match.address }}
-           <div style="color: darkgreen; float: right;">
-               <i style="color: navyblue; width: 10px;" class="material-icons">directions</i>
+           <div style="color: darkgreen; float: right; height: 2em; vertical-align: middle;">
+               <!-- <i style="height: 2em;" class="material-icons">directions</i> -->
+               <span class="badge new green darken-4" data-badge-caption="" style="line-height: 2em; vertical-align: middle; float: left;">directions</span>
+
            </div>
        </li>
        </a>
@@ -104,6 +107,14 @@
         {{ match.price }}
     </div>
 
+  </li>
+  <li class="collection-item" style="border: none;">
+      <div class="row">
+          <div id="map"></div>
+          <div class="hours">
+              <div ng-repeat="day in match.hours.weekday_text">{{ day }}</div>
+          </div>
+      </div>
   </li>
   <li ng-repeat="review in match.reviews" style="border: none;">
       <ul class="collapsible collapsible-item" data-collapsible="accordian" style="margin: 0; border: none;">
@@ -133,3 +144,33 @@
    </div> -->
  </div>
 </div>
+
+</div>
+
+<script>
+    function initMap() {
+
+        let myStorage = window.localStorage;
+        let match = JSON.parse(myStorage.getItem('proximoMatch'));
+        let position = JSON.parse(myStorage.getItem('proximoCoords'));
+        let destination = {lat: match.lat, lng: match.lng};
+
+        let midpoint = {lat: (match.lat + position.lat)/2, lng: (match.lng + position.lng)/2}
+
+        let map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: midpoint
+        });
+        let destinationMarker = new google.maps.Marker({
+            position: destination,
+            map: map
+        });
+        let currentMarker = new google.maps.Marker({
+            position: position,
+            map: map
+        });
+    }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8qQGQBpA_SsxbErRvmMxiMdxRj-VD0TY&callback=initMap">
+</script>
