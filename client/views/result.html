@@ -107,20 +107,21 @@
     </a>
   </li>
   <!-- Insert Social Share  -->
+    <li class="collection-item" style="border: none; padding: 0;">
+          <div class="fixed-action-btn horizontal right-align"style="position:relative; top: 1.3em;">
+           <a class="btn-floating btn pink darken-2">
+             <i style="15px"class="material-icons">share</i>
+           </a>
+           <ul>
+             <li><button class="btn-floating blue" id="fb" ng-click="fbPost()"></button></li>
+             <li><button class="btn-floating blue lighten-1" id="twitter" ng-click="tweet()"></button></li>
+             <li><button class="btn-floating red" id="plus" ng-click="gPost()"></li>
 
-  <div class="fixed-action-btn horizontal right-align"style="position:relative">
-   <a class="btn-floating btn pink darken-2">
-     <i style="15px"class="material-icons">share</i>
-   </a>
-   <ul>
-     <li><a class="btn-floating blue"><img class="blue" style="height: 30px; width: auto; border-radius: 50px;margin-right:6em;"src="images/facebook2.png" alt=""></a></li>
-     <li><a class="btn-floating blue lighten-1"><img class="blue lighten-2" style="height: 30px; width: auto;margin-right:6em;"src="images/twitter.png" alt=""></a></li>
-     <li><a class="btn-floating red"><img class="red" style="height: 30px; width: auto"src="images/google.png" alt=""></a></li>
-
-   </ul>
- </div>
-  <li class="collection-item" style="border: none;">
-    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
+           </ul>
+          </div>
+    </li>
+  <li class="collection-item" style="border: none; padding-top: 0;">
+    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 0;" >
         {{ match.price }}
     </div>
 

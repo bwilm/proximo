@@ -251,6 +251,43 @@ main {
     border-width: 0px;
 }
 
+#fb {
+    border-radius: 50%;
+    background-image: url("images/facebook2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#twitter {
+    border-radius: 50%;
+    border-radius: 50%;
+    background-image: url("images/twitter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#plus {
+    border-radius: 50%;
+    border-radius: 50%;
+    background-image: url("images/google.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
 
 
 
