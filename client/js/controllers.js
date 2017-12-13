@@ -24,6 +24,9 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         }
 
     }])
+    .controller('LoadingController', [function() {
+
+    }])
     .controller('ResultController', ['$scope', 'PlacesService', function($scope, PlacesService) {
 
         let myStorage = window.localStorage;

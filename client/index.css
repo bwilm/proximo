@@ -40,25 +40,6 @@ a {
   background-position: center;
 }
 
-
-@media (max-width: 700px) {
-
-    .foodwrapper{
-        width: 200%;
-        background-size: cover;
-        animation-name: foodimation;
-        animation-duration: 20s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    @keyframes foodimation {
-        from {left: 0;}
-        to {left: -400px;}
-    }
-}
-
 html {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
   background-repeat: no-repeat;

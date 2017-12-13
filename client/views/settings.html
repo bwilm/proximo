@@ -51,14 +51,14 @@ width: 20vw;
 height: 20vh;
 position: relative;
 background: linear-gradient(to bottom, #c94b4b, #4b134f);
--webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-transition: 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 }
 
 .background--on {
 background: linear-gradient(to bottom, #220022, #4b134f);
--webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-transition: 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+transition: 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 }
 .toggle-container {
     position: absolute;
@@ -72,39 +72,43 @@ width: 4em;
 height: 2em;
 background: white;
 border-radius: 1em;
--webkit-animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-      animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-animation: angle-reverse 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+      animation: angle-reverse 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 }
 
 .toggle-body--on {
--webkit-animation: angle 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-      animation: angle 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+-webkit-animation: angle 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+      animation: angle 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 -webkit-animation-direction: alternate;
       animation-direction: alternate;
 }
 
 .toggle-btn {
-width: 1em;
-height: 1em;
-position: absolute;
-top: calc(50% - 1em / 2);
-left: calc(37% - 1em / 2);
-background: white;
-border-radius: 1em;
-background: #c94b4b;
-cursor: pointer;
--webkit-transform: translateX(0);
-      transform: translateX(0);
--webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border-width: 0px;
+    position: absolute;
+    top: calc(50% - 1em / 2);
+    left: calc(37% - 1em / 2);
+    background: white;
+    border-radius: 1em;
+    background: #c94b4b;
+    cursor: pointer;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 }
 
 .toggle-btn--on {
--webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
--webkit-transform: translateX(100%);
+    -webkit-appearance: none;
+    border-width: 0px;
+    -webkit-transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    -webkit-transform: translateX(100%);
       transform: translateX(100%);
-background: #110011;
+    background: #110011;
 }
 
 @-webkit-keyframes angle {
