@@ -71,6 +71,9 @@
     <div class="row">
     <div class="col 3" style="max-width: 60%;"> <span><h5 style="margin-top: 0;">{{match.name}}</h5></span> </div>
     <div style="float: right" class="col 2"> <span><h3  style="margin-top:0px;">{{match.rating}}<i style="color:gold; width: 10px;margin-right:2px;"class="material-icons">star_rate</i></h3></span></div>
+    <br>
+
+
   </div>
 
 </div>
@@ -99,11 +102,24 @@
 
       <li class="collection-item" style="border: none;">  {{ match.phone }}</li>
 
-<li class="collection-item" style="border: none;">
+<li class="collection-item" style="border: none; margin-top: 0em;">
     <a ng-href="{{ match.website }}">
         {{ match.website }}
     </a>
   </li>
+  <!-- Insert Social Share  -->
+
+  <div class="fixed-action-btn horizontal right-align"style="position:relative">
+   <a class="btn-floating btn pink darken-2">
+     <i style="15px"class="material-icons">share</i>
+   </a>
+   <ul>
+     <li><a class="btn-floating blue"><img class="blue" style="height: 30px; width: auto; border-radius: 50px;margin-right:6em;"src="images/facebook2.png" alt=""></a></li>
+     <li><a class="btn-floating blue lighten-1"><img class="blue lighten-2" style="height: 30px; width: auto;margin-right:6em;"src="images/twitter.png" alt=""></a></li>
+     <li><a class="btn-floating red"><img class="red" style="height: 30px; width: auto"src="images/google.png" alt=""></a></li>
+
+   </ul>
+ </div>
   <li class="collection-item" style="border: none;">
     <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 1em;" >
         {{ match.price }}
