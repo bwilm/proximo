@@ -18,6 +18,12 @@ background-size: cover;
 background-repeat: no-repeat;
 background-image: url("images/foodpaper.png");
 
+a {
+    text-decoration: none;
+    text-decoration-color: inherit;
+    color: inherit;
+}
+
 }
 .resultfoodwrapper{
   position:absolute;
@@ -88,6 +94,21 @@ main {
   text-shadow: .1em .12em rgba(22, 00, 22, .1);
 }
 
+#map {
+    width: 150px;
+    height: 150px;
+    float: left;
+    background-color: grey;
+}
+
+.hours {
+    font-size: .78em;
+    text-align: right;
+    line-height: 2em;
+    padding-left: 1em;
+    float: right;
+}
+
 @media (min-width: 700px) {
     .container {
         max-height: 700px;
@@ -108,7 +129,19 @@ main {
         right: 2em;
     }
 
-    .home {
+    .resultcard {
+        height: 35vh;
+    }
+
+    #map {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hours {
+        font-size: 1.2em;
+        line-height: 2em;
+        padding-left: 1em;
     }
 
     #wrapper {
@@ -215,20 +248,9 @@ main {
     border-width: 0px;
 }
 
-#map {
-    width: 150px;
-    height: 150px;
-    float: left;
-    background-color: grey;
-}
 
-.hours {
-    font-size: .7em;
-    text-align: right;
-    line-height: 1.85em;
-    padding-left: 1em;
-    float: left;
-}
+
+
 /*.slider {
     -webkit-appearance: none;
     width: 100%;

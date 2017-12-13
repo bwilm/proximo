@@ -46,7 +46,7 @@
       </div>
     </div>
   </div> -->
-<div class="animate-in" style="100%; width: 100%; max-width: 700px; margin: 0 auto;">
+<div class="animate-in" style="height: 100%; width: 100%; max-width: 700px; margin: 0 auto;">
 
   <div style="margin: 0 0 2em 0;"class="card sticky-action">
     <div  style="margin-bottom: 0em;padding-bottom: 0em;"class="card-image waves-effect waves-block waves-light">
@@ -64,7 +64,7 @@
   </div>
     <!--carousel html ends here  -->
 
-    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5">
+    <div style= "padding-left: 0.4em;padding-right:0.4em;margin-left: 0px;margin-top: 0.5em;margin-bottom: 0.5em; padding-bottom: 1em; padding-top:0em; border-radius: 0 0 0 0;"class="card-content z-depth-5 resultcard">
       <div class="row">
       <span style=" font-size: 15px; font-weight: bolder;width: 100%;margin-bottom: 0.5em; margin-left: 0px;"class="card-title activator grey-text text-darken-4"><a style="width: 100%"class="waves-effect waves-light btn green pulse">WE RECOMMEND</a><i class="btn-floating large halfway-fab waves-effect waves-light pink darken-2 pulse"><i class="material-icons" style="position:relative; font-size:.4em; top:-15%;">add</i></i></span>
     </div>
@@ -76,14 +76,16 @@
 </div>
 
   <!--reveal  -->
-      <div class="card-reveal pink darken-2 pink-text resultfoodwrapper">
+      <div class="card-reveal pink darken-2 pink-text text-darken-3 resultfoodwrapper">
   <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right white-text">close</i></span>
-<ul class="collection" style="border:none;">
+<ul class="collection pink darken-4" style="border:none;">
 
-      <li class="collection-item" style="border: none;">  {{ match.name }}</li>
+      <li class="collection-item" style="border: none;">
+          <h5>{{ match.name }}</h5>
+      </li>
 
 
-      <a target="_blank" style="color: inherit;" ng-href="{{ match.url }}">
+      <a target="_blank" class="pink-text text-darken-3" ng-href="{{ match.url }}">
       <li class="collection-item" style="border: none;">
            {{ match.address }}
            <div style="color: darkgreen; float: right; height: 2em; vertical-align: middle;">
