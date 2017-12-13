@@ -62,10 +62,35 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
 
         }
 
+        $scope.fbPost = function () {
+            var win = window.open(`http://www.facebook.com/share.php?u=https://radiant-castle-94303.herokuapp.com/`, '_blank');
+
+            win.focus();
+        }
+
+        $scope.gPost = function() {
+            var win = window.open(`https://plus.google.com/share?url=https%3A//radiant-castle-94303.herokuapp.com/`, '_blank');
+
+            win.focus();
+        }
+
+
+        $scope.tweet = function() {
+            var win = window.open(`http://twitter.com/home?status=Heading%20to%20${$scope.match.name}!%20Thanks,%20@proximo!`, '_blank');
+
+            win.focus();
+
+        }
 
 
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
+
+
+        function activatePlacesSearch() {
+            var autocomplete = new google.maps.places.Autocomplete($scope.here);
+            $scope.here = autocomplete;
+        }
 
             const body = document.querySelector('body');
             const html = document.querySelector('html');

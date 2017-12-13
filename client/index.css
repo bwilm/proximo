@@ -70,10 +70,10 @@ transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 main {
   flex: 1 0 auto;
 }
+
 .result.img{
   min-height: inherit;
 }
-
 
 .container {
     max-height: 400px;
@@ -94,15 +94,18 @@ main {
   text-shadow: .1em .12em rgba(22, 00, 22, .1);
 }
 
+
+
 #map {
-    width: 150px;
     height: 150px;
+    width: 150px;
     float: left;
-    background-color: grey;
+    margin: 0;
+    padding: 0;
 }
 
 .hours {
-    font-size: .78em;
+    font-size: .75em;
     text-align: right;
     line-height: 2em;
     padding-left: 1em;
@@ -134,8 +137,8 @@ main {
     }
 
     #map {
-        width: 250px;
         height: 250px;
+        width: 250px;
     }
 
     .hours {
@@ -248,6 +251,43 @@ main {
     border-width: 0px;
 }
 
+#fb {
+    border-radius: 50%;
+    background-image: url("images/facebook2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#twitter {
+    border-radius: 50%;
+    border-radius: 50%;
+    background-image: url("images/twitter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#plus {
+    border-radius: 50%;
+    border-radius: 50%;
+    background-image: url("images/google.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
 
 
 
