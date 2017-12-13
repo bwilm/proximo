@@ -70,10 +70,10 @@ transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 main {
   flex: 1 0 auto;
 }
+
 .result.img{
   min-height: inherit;
 }
-
 
 .container {
     max-height: 400px;
@@ -94,11 +94,14 @@ main {
   text-shadow: .1em .12em rgba(22, 00, 22, .1);
 }
 
+
+
 #map {
-    width: 150px;
     height: 150px;
+    width: 150px;
     float: left;
-    background-color: grey;
+    margin: 0;
+    padding: 0;
 }
 
 .hours {
@@ -134,8 +137,8 @@ main {
     }
 
     #map {
-        width: 250px;
         height: 250px;
+        width: 250px;
     }
 
     .hours {

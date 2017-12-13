@@ -67,6 +67,12 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
 
+
+        function activatePlacesSearch() {
+            var autocomplete = new google.maps.places.Autocomplete($scope.here);
+            $scope.here = autocomplete;
+        }
+
             const body = document.querySelector('body');
             const html = document.querySelector('html');
             const toggleBody = document.querySelector('.toggle-body');

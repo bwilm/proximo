@@ -1,6 +1,5 @@
 <script>
   $(document).ready(function(){
-
      $(".button-collapse").sideNav();
 
      window.addEventListener("beforeunload", function(){
@@ -111,7 +110,7 @@
 
   </li>
   <li class="collection-item" style="border: none;">
-      <div class="row">
+      <div class="row map-row">
           <div id="map"></div>
           <div class="hours">
               <div ng-repeat="day in match.hours.weekday_text">{{ day }}</div>
@@ -155,22 +154,41 @@
         let myStorage = window.localStorage;
         let match = JSON.parse(myStorage.getItem('proximoMatch'));
         let position = JSON.parse(myStorage.getItem('proximoCoords'));
-        let destination = {lat: match.lat, lng: match.lng};
+        let current = { lat: position.lat, lng: position.lng };
+        let destination = { lat: match.lat, lng: match.lng };
 
-        let midpoint = {lat: (match.lat + position.lat)/2, lng: (match.lng + position.lng)/2}
+        console.log(destination);
+        console.log(current);
 
-        let map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
-            center: midpoint
-        });
-        let destinationMarker = new google.maps.Marker({
-            position: destination,
-            map: map
-        });
-        let currentMarker = new google.maps.Marker({
-            position: position,
-            map: map
-        });
+        if (position) {
+            let midpoint = { lat: (destination.lat + current.lat)/2, lng: (destination.lng + current.lng)/2 };
+            console.log(midpoint);
+            let map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: midpoint,
+                disableDefaultUI: false,
+                mapTypeControl: false
+            });
+            let currentMarker = new google.maps.Marker({
+                position: current,
+                map: map
+            });
+            let destinationMarker = new google.maps.Marker({
+                position: destination,
+                map: map
+            });
+        } else {
+            let map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: destination,
+                disableDefaultUI: false,
+                mapTypeControl: false
+            });
+            let destinationMarker = new google.maps.Marker({
+                position: destination,
+                map: map
+            });
+        }
     }
 </script>
 <script async defer
