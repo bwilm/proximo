@@ -13,8 +13,6 @@
        wrapperHeight = container.height();
        overlapWidth = (wrapperWidth - imageWidth)/2;
        overlapHeight = (wrapperHeight - imageHeight)/2;
-       console.log(overlapWidth);
-       console.log(overlapHeight);
        container.find('img').css('margin-left', overlapWidth);
        container.find('img').css('margin-top', overlapHeight);
       }
@@ -93,6 +91,31 @@
         display: block;
         background: transparent;
         margin: auto;
+    }
+
+
+    .red>i {
+        top: 0;
+        left: 0;
+
+        animation-name: rollingIcon;
+        animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: forwards;
+    }
+
+    .green>i {
+        animation-name: rollingIcon;
+        animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: reverse;
+    }
+
+    @keyframes rollingIcon {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
     }
 
 
