@@ -24,21 +24,11 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         }
 
     }])
-    .controller('LoadingController', ['$location', 'GeolocationService', function($location, GeolocationService) {
-
-        // GeolocationService.setCoordinates(function() {
-        //     $location.url('/settings');
-        // });
-
-    }])
-    .controller('AboutController', [function() {
-
-    }])
     .controller('ResultController', ['$scope', 'PlacesService', function($scope, PlacesService) {
 
         let myStorage = window.localStorage;
         $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
-        console.log($scope.match);
+
         for (let i = 0; i < $scope.match.photos.length; i++) {
             $scope.match.photos[i].photo_reference = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.match.photos[i].photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
         }
@@ -146,7 +136,6 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
                 } else if (settings.type === 'bar') {
                     settings.type = 'restaurant';
                 }
-                console.log(settings.type);
             }
 
         $scope.start = function() {
@@ -233,19 +222,4 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
         }
 
         $scope.nextImage();
-
-        // function getImage() {
-        //     Places.get({ id: image.photo_reference}, response => {
-        //         console.log(response);
-        //         $scope.getImage = response;
-        //
-        //     })
-        // }
-        //
-        // getImage()
-
-        // Places.get({ id: }, response => {
-        //     $scope.imageUrl = response;
-        //     console.log(response);
-        // })
     }])

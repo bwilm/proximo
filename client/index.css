@@ -7,16 +7,18 @@
 
 }*/
 .foodwrapper{
-position:absolute;
-top: 0;
-left: 0;
-opacity: .1;
-z-index: 0;
-width: 100%;
-height: 100vh;
-background-size: cover;
-background-repeat: no-repeat;
-background-image: url("images/foodpaper.png");
+    position:absolute;
+    top: 0;
+    left: 0;
+    opacity: .1;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("images/foodpaper.png");
+
+}
 
 a {
     text-decoration: none;
@@ -24,7 +26,6 @@ a {
     color: inherit;
 }
 
-}
 .resultfoodwrapper{
   position:absolute;
   top: 0;
@@ -36,9 +37,28 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("images/foodpaper.png");
-
-
+  background-position: center;
 }
+
+
+@media (max-width: 700px) {
+
+    .foodwrapper{
+        width: 200%;
+        background-size: cover;
+        animation-name: foodimation;
+        animation-duration: 20s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes foodimation {
+        from {left: 0;}
+        to {left: -400px;}
+    }
+}
+
 html {
   background: linear-gradient(to bottom, #c94b4b, #4b134f);
   background-repeat: no-repeat;
