@@ -48,7 +48,7 @@
 <div class="animate-in" style="height: 100%; width: 100%; max-width: 700px; margin: 0 auto;">
 
   <div style="margin: 0 0 2em 0;"class="card sticky-action">
-    <div  style="margin-bottom: 0em;padding-bottom: 0em;"class="card-image waves-effect waves-block waves-light">
+    <div  style="margin-bottom: 0em;padding-bottom: 0em; "class="card-image waves-effect waves-block waves-light">
   <!--Carousel for Images inserted here  -->
 
 
@@ -79,7 +79,9 @@
 
   <!--reveal  -->
       <div class="card-reveal pink darken-2 pink-text text-darken-3 resultfoodwrapper">
-  <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse"><i class="material-icons right white-text">close</i></span>
+  <span style="padding-bottom: 2em;"class="card-title grey-text text-darken-4 pulse">
+      <!-- <i class="material-icons right white-text">close</i> -->
+  </span>
 <ul class="collection pink darken-4" style="border:none;">
 
       <li class="collection-item" style="border: none;">
@@ -88,8 +90,10 @@
 
 
       <a target="_blank" class="pink-text text-darken-3" ng-href="{{ match.url }}">
-      <li class="collection-item" style="border: none;">
-           {{ match.address }}
+      <li class="collection-item" style="border: none; height: auto;">
+           <div style="float: left; width: 70%;">
+               {{ match.address }}
+           </div>
            <div style="color: darkgreen; float: right; height: 2em; vertical-align: middle;">
                <!-- <i style="height: 2em;" class="material-icons">directions</i> -->
                <span class="badge new green darken-2" data-badge-caption="" style="line-height: 2em; vertical-align: middle; float: left;">directions</span>
@@ -99,7 +103,7 @@
        </a>
 
 
-      <li class="collection-item" style="border: none;" ng-show="match.phone">
+      <li class="collection-item" style="border: none; padding-top: 2em;" ng-show="match.phone">
             {{ match.phone }}
         </li>
 
@@ -115,7 +119,7 @@
     <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-bottom: 0; margin-left: 0; float: left;width: 30%" >
         {{ match.price }}
     </div>
-    <div class="fixed-action-btn horizontal right-align"style="position:relative; top: -1.5em;">
+    <div class="fixed-action-btn horizontal right-align"style="position:relative; top: -1.3em;">
      <a class="btn-floating btn pink darken-2">
        <i style="15px"class="material-icons">share</i>
      </a>
