@@ -6,6 +6,13 @@
   z-index: -1;
 
 }*/
+.parallax{
+  position:static;
+}
+.parallax-container {
+    height: 700px;
+  }
+
 .foodwrapper{
     position:absolute;
     top: 0;
