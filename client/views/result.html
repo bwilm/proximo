@@ -99,39 +99,44 @@
        </a>
 
 
-      <li class="collection-item" style="border: none;">  {{ match.phone }}</li>
+      <li class="collection-item" style="border: none;" ng-show="match.phone">
+            {{ match.phone }}
+        </li>
 
-<li class="collection-item" style="border: none; margin-top: 0em;">
+<li class="collection-item" style="border: none; margin-top: 0em;" ng-show="match.website">
     <a ng-href="{{ match.website }}">
         {{ match.website }}
     </a>
   </li>
-  <!-- Insert Social Share  -->
-    <li class="collection-item" style="border: none; padding: 0;">
-          <div class="fixed-action-btn horizontal right-align"style="position:relative; top: 1.3em;">
-           <a class="btn-floating btn pink darken-2">
-             <i style="15px"class="material-icons">share</i>
-           </a>
-           <ul>
-             <li><button class="btn-floating blue" id="fb" ng-click="fbPost()"></button></li>
-             <li><button class="btn-floating blue lighten-1" id="twitter" ng-click="tweet()"></button></li>
-             <li><button class="btn-floating red" id="plus" ng-click="gPost()"></li>
-
-           </ul>
-          </div>
-    </li>
-  <li class="collection-item" style="border: none; padding-top: 0;">
-    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-top: 0;" >
+  <li class="collection-item" style="border: none;" ng-show="hours">
+      Open: {{ hours }}
+  </li>
+  <li class="collection-item" style="border: none; padding-bottom: 0;" ng-show="match.price">
+    <div class="row" style="color:green; font-size: 30px; font-weight: bolder;margin-bottom: 0; margin-left: 0; float: left;width: 30%" >
         {{ match.price }}
+    </div>
+    <div class="fixed-action-btn horizontal right-align"style="position:relative; top: -1.5em;">
+     <a class="btn-floating btn pink darken-2">
+       <i style="15px"class="material-icons">share</i>
+     </a>
+     <ul>
+       <li style="top: 0;"><button class="btn-floating blue" id="fb" ng-click="fbPost()"></button></li>
+       <li><button class="btn-floating blue lighten-1" id="twitter" ng-click="tweet()"></button></li>
+       <li><button class="btn-floating red" id="plus" ng-click="gPost()"></li>
+
+     </ul>
     </div>
 
   </li>
+  <!-- Insert Social Share  -->
+    <!-- <li class="collection-item" style="border: none; padding: 0 0 2em 0; height: 4em; width: 60%; float: right;">
+
+    </li> -->
+
+
   <li class="collection-item" style="border: none;">
-      <div class="row map-row">
-          <div id="map"></div>
-          <div class="hours">
-              <div ng-repeat="day in match.hours.weekday_text">{{ day }}</div>
-          </div>
+      <div class="row map-row" style="witdh: 60vw; height: 80vw;">
+          <div id="map" ng-style="{'background-image':'url({{ map }})'}" style="width: 100%; height: 100%;" style="margin-left: 20%"></div>
       </div>
   </li>
   <li ng-repeat="review in match.reviews" style="border: none;">
@@ -165,49 +170,49 @@
 
 </div>
 
-<script>
-    function initMap() {
-
-        let myStorage = window.localStorage;
-        let match = JSON.parse(myStorage.getItem('proximoMatch'));
-        let position = JSON.parse(myStorage.getItem('proximoCoords'));
-        let current = { lat: position.lat, lng: position.lng };
-        let destination = { lat: match.lat, lng: match.lng };
-
-        console.log(destination);
-        console.log(current);
-
-        if (position) {
-            let midpoint = { lat: (destination.lat + current.lat)/2, lng: (destination.lng + current.lng)/2 };
-            console.log(midpoint);
-            let map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
-                center: midpoint,
-                disableDefaultUI: false,
-                mapTypeControl: false
-            });
-            let currentMarker = new google.maps.Marker({
-                position: current,
-                map: map
-            });
-            let destinationMarker = new google.maps.Marker({
-                position: destination,
-                map: map
-            });
-        } else {
-            let map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 13,
-                center: destination,
-                disableDefaultUI: false,
-                mapTypeControl: false
-            });
-            let destinationMarker = new google.maps.Marker({
-                position: destination,
-                map: map
-            });
-        }
-    }
+<!-- <script>
+    // function initMap() {
+    //
+    //     let myStorage = window.localStorage;
+    //     let match = JSON.parse(myStorage.getItem('proximoMatch'));
+    //     let position = JSON.parse(myStorage.getItem('proximoCoords'));
+    //     let current = { lat: position.lat, lng: position.lng };
+    //     let destination = { lat: match.lat, lng: match.lng };
+    //
+    //     console.log(destination);
+    //     console.log(current);
+    //
+    //     if (position) {
+    //         let midpoint = { lat: (destination.lat + current.lat)/2, lng: (destination.lng + current.lng)/2 };
+    //         console.log(midpoint);
+    //         let map = new google.maps.Map(document.getElementById("map"), {
+    //             zoom: 12,
+    //             center: midpoint,
+    //             disableDefaultUI: false,
+    //             mapTypeControl: false
+    //         });
+    //         let currentMarker = new google.maps.Marker({
+    //             position: current,
+    //             map: map
+    //         });
+    //         let destinationMarker = new google.maps.Marker({
+    //             position: destination,
+    //             map: map
+    //         });
+    //     } else {
+    //         let map = new google.maps.Map(document.getElementById("map"), {
+    //             zoom: 13,
+    //             center: destination,
+    //             disableDefaultUI: false,
+    //             mapTypeControl: false
+    //         });
+    //         let destinationMarker = new google.maps.Marker({
+    //             position: destination,
+    //             map: map
+    //         });
+    //     }
+    // }
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8qQGQBpA_SsxbErRvmMxiMdxRj-VD0TY&callback=initMap">
-</script>
+</script> -->

@@ -30,7 +30,37 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     .controller('ResultController', ['$scope', 'PlacesService', function($scope, PlacesService) {
 
         let myStorage = window.localStorage;
+        let current = JSON.parse(myStorage.getItem('proximoCoords'));
+        let today = new Date();
+        let day = today.getDay();
+
+        let convertTime = function(t) {
+            console.log(t);
+            let hours = t[0]+t[1];
+            let minutes = t[2]+t[3];
+            let output;
+            if (hours == 0) {
+                output = "12";
+            } else if (hours <= 10) {
+                output = "" + hours[1];
+            } else if (hours <= 12) {
+                output = "" + hours;
+            } else {
+                output = "" + (hours - 12);
+            }
+
+            output += ":"+minutes;
+            output += (hours >= 12) ? " PM" : " AM";
+            console.log(output);
+            return output;
+        }
+
+
         $scope.match = JSON.parse(myStorage.getItem('proximoMatch'));
+        console.log($scope.match);
+        $scope.hours = "";
+        $scope.hours = convertTime($scope.match.hours.periods[day].open.time) + " - " + convertTime($scope.match.hours.periods[day].close.time)
+        console.log($scope.hours);
 
         for (let i = 0; i < $scope.match.photos.length; i++) {
             $scope.match.photos[i].photo_reference = "https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference="+$scope.match.photos[i].photo_reference+"&key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo";
@@ -40,6 +70,17 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
             price += '$';
         }
         $scope.match.price = price;
+
+        if (current) {
+            let midpoint = {lat: ($scope.match.lat + current.lat)/2, lng: ($scope.match.lng + current.lng)/2};
+
+            $scope.map = `https://maps.googleapis.com/maps/api/staticmap?center=${midpoint.lat},${midpoint.lng}&size=600x600&maptype=roadmap&markers=color:pink%7Clabel:Y%7C${current.lat},${current.lng}&markers=color:purple%7Clabel:${$scope.match.name[0]}%7C${$scope.match.lat},${$scope.match.lng}&key=AIzaSyD8qQGQBpA_SsxbErRvmMxiMdxRj-VD0TY`;
+            console.log($scope.map);
+        } else {
+            $scope.map = `https://maps.googleapis.com/maps/api/staticmap?center=${$scope.match.lat},${$scope.match.lng}&size=600x600&maptype=roadmap&markers=color:purple%7Clabel:${$scope.match.name[0]}%7C${$scope.match.lat},${$scope.match.lng}&key=AIzaSyD8qQGQBpA_SsxbErRvmMxiMdxRj-VD0TY`;
+            console.log($scope.map);
+        }
+
 
         $scope.reject = function() {
             let rejects = JSON.parse(myStorage.getItem('proximoRejects'));
