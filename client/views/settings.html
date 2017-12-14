@@ -63,7 +63,7 @@ transition: 1s cubic-bezier(0.68, -0.15, 0.265, 1.35);
 .toggle-container {
     position: absolute;
     top: 1em;
-    right: 2.2em;
+    right: 3.8em;
 }
 
 .toggle-body {
@@ -93,7 +93,7 @@ border-radius: 1em;
     left: calc(37% - 1em / 2);
     background: white;
     border-radius: 1em;
-    background: #c94b4b;
+    background-color: #c94b4b;
     cursor: pointer;
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -108,7 +108,7 @@ border-radius: 1em;
     transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
     -webkit-transform: translateX(100%);
       transform: translateX(100%);
-    background: #110011;
+    background-color: #110011;
 }
 
 @-webkit-keyframes angle {
@@ -174,11 +174,11 @@ border-radius: 1em;
 <div class="nav-wrapper pink darken-4 ">
 <a href="/home" class="brand-logo pacifico">Próximo</a>
 
-<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: 1.2em .5em 0 .2em; padding: 0; background-image: url(images/martini.png); background-size: contain; background-repeat: no-repeat;">
+<div class="white-text" style="position: absolute; float: right; color: white; height: 1.5em; width: 1.5em; top: 1.2em; right: 2em; padding: 0; background-image: url(images/martini.png); background-size: contain; background-repeat: no-repeat;">
     <!-- <img src="images/martini.png" height: '10' width: '10'> -->
 </div>
 
-<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; margin: 1.2em 4.5em 0 0; padding: 0; background-image: url(images/burger.png); background-size: contain; background-repeat: no-repeat;">
+<div class="white-text" style=" float: right; color: white; height: 1.5em; width: 1.5em; position: absolute; top: 1.2em; right: 8.2em; padding: 0; background-image: url(images/burger.png); background-size: contain; background-repeat: no-repeat;">
 </div>
 
 
@@ -221,7 +221,7 @@ border-radius: 1em;
       <div class="row">
         <div class="input-field col s12">
           <i style="color: white; margin-top: 4px;" class="material-icons prefix ">location_city</i>
-          <input type="text" id="autocomplete-input" style="color: white;" class="autocomplete  " ng-model="here">
+          <input type="text" id="autocomplete-input" gm-places-autocoplete style="color: white;" class="autocomplete  " ng-model="here">
           <label class="white-text" for="autocomplete-input "></label>
         </div>
         <div class="input-field col s12">
@@ -266,10 +266,13 @@ border-radius: 1em;
   <button  style="margin-top: 2em; width: 100%;text-align: center;"class="waves-effect waves-light pink darken-4 btn z-depth-5" ng-class="{disabled: (!coords && !here) || !range}" ng-click="start()">Continue</button>
 
 </div>
-<script>
+<!-- <script>
     function activatePlacesSearch() {
         var input = document.getElementById('autocomplete-input');
         var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            $('[ng-model="here"]').val();
+        });
     }
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo&libraries=places&callback=activatePlacesSearch"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeIyiRGq2YiHzZWgql9gPsJEPE9qND5bo&libraries=places&callback=activatePlacesSearch"></script> -->

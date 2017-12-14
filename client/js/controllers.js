@@ -120,67 +120,67 @@ angular.module('proximo.controllers', ['ngResource', 'ngRoute'])
     }])
     .controller('SettingsController', ['$scope', '$http', '$location', 'GeolocationService', 'PlacesService', 'Places', function($scope, $http, $location, GeolocationService, PlacesService, Places) {
 
+        $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
+            $scope.here = $scope.autocomplete.getPlace().name;
+            $scope.$apply();
+        });
 
-        function activatePlacesSearch() {
-            var autocomplete = new google.maps.places.Autocomplete($scope.here);
-            $scope.here = autocomplete;
+
+        const body = document.querySelector('body');
+        const html = document.querySelector('html');
+        const toggleBody = document.querySelector('.toggle-body');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const myStorage = window.localStorage;
+        let settings = JSON.parse(myStorage.getItem('proximoSettings'));
+        $scope.coords = JSON.parse(myStorage.getItem('proximoCoords'));
+
+        if (!$scope.coords) {
+            $scope.coords = false;
         }
 
-            const body = document.querySelector('body');
-            const html = document.querySelector('html');
-            const toggleBody = document.querySelector('.toggle-body');
-            const toggleBtn = document.querySelector('.toggle-btn');
-            const myStorage = window.localStorage;
-            let settings = JSON.parse(myStorage.getItem('proximoSettings'));
-            $scope.coords = JSON.parse(myStorage.getItem('proximoCoords'));
+        if (settings) {
+          if (settings.type === 'restaurant') {
+            html.classList.remove('background--on');
+            body.classList.remove('background--on');
+            toggleBody.classList.remove('toggle-body--on');
+            toggleBtn.classList.remove('toggle-btn--on');
+            toggleBtn.classList.remove('toggle-btn--scale');
+            $scope.here = settings.address || '';
+            $scope.range = settings.radius || '800';
 
-            if (!$scope.coords) {
-                $scope.coords = false;
+          } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
+            html.classList.add('background--on');
+            body.classList.add('background--on');
+            toggleBody.classList.add('toggle-body--on');
+            toggleBtn.classList.add('toggle-btn--on');
+            toggleBtn.classList.add('toggle-btn--scale');
+
+            $scope.range = settings.radius || '800';
+
+          }
+
+        } else {
+          settings = {
+            type: 'restaurant'
+          };
+          $scope.here = '';
+          $scope.range = '800';
+
+        }
+
+        $scope.toggleMode = function() {
+            html.classList.toggle('background--on');
+            body.classList.toggle('background--on');
+            toggleBody.classList.toggle('toggle-body--on');
+            toggleBtn.classList.toggle('toggle-btn--on');
+            toggleBtn.classList.toggle('toggle-btn--scale');
+
+            if (settings.type === 'restaurant') {
+                settings.type = 'bar';
+            } else if (settings.type === 'bar') {
+                settings.type = 'restaurant';
             }
-
-            if (settings) {
-              if (settings.type === 'restaurant') {
-                html.classList.remove('background--on');
-                body.classList.remove('background--on');
-                toggleBody.classList.remove('toggle-body--on');
-                toggleBtn.classList.remove('toggle-btn--on');
-                toggleBtn.classList.remove('toggle-btn--scale');
-                $scope.here = settings.address || '';
-                $scope.range = settings.radius || '800';
-
-              } else if (settings.type === 'bar' && !$('html').hasClass('background--on')) {
-                html.classList.add('background--on');
-                body.classList.add('background--on');
-                toggleBody.classList.add('toggle-body--on');
-                toggleBtn.classList.add('toggle-btn--on');
-                toggleBtn.classList.add('toggle-btn--scale');
-
-                $scope.range = settings.radius || '800';
-
-              }
-
-            } else {
-              settings = {
-                type: 'restaurant'
-              };
-              $scope.here = '';
-              $scope.range = '800';
-
-            }
-
-            $scope.toggleMode = function() {
-                html.classList.toggle('background--on');
-                body.classList.toggle('background--on');
-                toggleBody.classList.toggle('toggle-body--on');
-                toggleBtn.classList.toggle('toggle-btn--on');
-                toggleBtn.classList.toggle('toggle-btn--scale');
-
-                if (settings.type === 'restaurant') {
-                    settings.type = 'bar';
-                } else if (settings.type === 'bar') {
-                    settings.type = 'restaurant';
-                }
-            }
+        }
 
         $scope.start = function() {
 
