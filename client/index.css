@@ -1,11 +1,3 @@
-/*.home2{
-
-  background-image: url("images/foodpaper.png");
-  background-size: contain;
-  opacity: 0.4;
-  z-index: -1;
-
-}*/
 .parallax{
   position:static;
 }
@@ -137,7 +129,7 @@ main {
     }
 
     .message {
-        margin-left: 30
+        margin-left: 30;
         right: 2em;
     }
 
@@ -159,23 +151,9 @@ main {
     #wrapper {
         min-height: 600px;
         box-shadow: 20px 20px 20px #000000;
-        padding
-        background-image: transparent;
+        background: transparent;
 
     }
-
-    .main-image {
-
-    }
-
-
-
-
-}
-
-.home{
-    /*background: linear-gradient(to bottom, #c94b4b, #4b134f);*/
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
@@ -297,34 +275,3 @@ main {
     height: 30px;
     width: 30px;
 }
-
-
-
-/*.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
-    border-radius: 25px;
-    background-color: white;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 5px;
-    height: 5px;
-    background: #c94b4b;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #c94b4b;
-    cursor: pointer;
-}*/

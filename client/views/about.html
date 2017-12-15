@@ -1,10 +1,8 @@
 <script>
     $(document).ready(function(){
         $("#sidenav-overlay").fadeOut(300, function() {
-          $(this).remove(); });
+          $("#sidenav-overlay").remove(); });
         $(".button-collapse").sideNav();
-
-        $('.parallax').parallax();
 
         $('.lean-overlay').remove();
 
@@ -12,39 +10,38 @@
   });
 </script>
 
-<nav>
-<div class="nav-wrapper pink darken-4 ">
-<a href="/home" class="brand-logo pacifico">Próximo</a>
-<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<ul id="nav-mobile" class="right hide-on-med-and-down">
-<li><a href="/settings"><i class="material-icons">settings</i></a></li>
-<li><a href="/about"><i class="material-icons">live_help</i></a></li>
-</ul>
-<ul id="mobile-demo" class="side-nav pink darken-2">
-  <li><a class="mobile-link" style="color:white"href="/settings" data-dismiss="sidenave-overlay">settings</a></li>
-  <li><a class="mobile-link" style="color:white"href="/about">about</a></li>
+<div style="min-width: 100vw; min-height: 100vh;">
+  <nav style="width: 100%;">
+  <div class="nav-wrapper pink darken-4 animate-in ">
+  <a href="/home" class="brand-logo pacifico ">Próximo</a>
+  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+  <ul id="nav-mobile" class="right hide-on-med-and-down">
+  <li><a href="/settings"><i class="material-icons">settings</i></a></li>
+  <li><a href="/about"><i class="material-icons">live_help</i></a></li>
+  </ul>
+  <ul id="mobile-demo" class="side-nav pink darken-3 home2">
+    <li><a style="color:white"href="/settings">settings</a></li>
+    <li><a style="color:white"href="/about">about</a></li>
+  </nav>
 
 
-</ul>
-</div>
-</nav>
-
-
-
-
-  <div class="parallax-container">
-    <div class="parallax"><img src="images/nashville-star.jpg" style="z-index: 1;"></div>
+<div style="z-index: 3;">
+  <div>
+    <div style="height: 30vh; width: 100%; background-image: url('images/nashville-star.png'); background-repeat: no-repeat; background-size: cover; background-position: 0 bottom;  "></div>
   </div>
 
-  <div class="section pink darken-4 home2">
-    <div class="row container">
-      <img src="images/logo-text.png" alt="">
-      <p class="white-text lighten-3">Made In Nashville // TN by:</p>
-      <p class="white-text">Ben White: Back End and API</p>
-      <p class="white-text">Brandon Wilmott: Lead UI and UX designer</p>
+  <div class="pink darken-4" style="padding: 0 0 1em 1em;">
+    <div>
+      <img src="images/logo-text.png" alt="high mark" style="width: 300px; margin: 1em 0 0 -2em;"><br>
+      <span class="white-text lighten-3">Made In Nashville // TN by:</span><br>
+      <span class="white-text">Ben White: Back End and API</span><br>
+      <span class="white-text">Brandon Wilmott: Lead UI and UX designer</span>
     </div>
   </div>
 </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="images/guitars.jpg"></div>
+  <div>
+    <div>
+      <div style="height: 30vh; width: 100%; background-image: url('images/guitars.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center bottom;  "></div>
+    </div>
   </div>
+</div>
