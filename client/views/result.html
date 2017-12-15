@@ -90,7 +90,7 @@
 
 
       <a target="_blank" class="pink-text text-darken-3" ng-href="{{ match.url }}">
-      <li class="collection-item" style="border: none; height: auto;">
+      <li class="collection-item" style="border: none; height: 3em;">
            <div style="float: left; width: 70%;">
                {{ match.address }}
            </div>
@@ -103,8 +103,8 @@
        </a>
 
 
-      <li class="collection-item" style="border: none; padding-top: 2em;" ng-show="match.phone">
-            {{ match.phone }}
+      <li class="collection-item" style="border: none;" ng-show="match.phone">
+            <div>{{ match.phone }}</div>
         </li>
 
 <li class="collection-item" style="border: none; margin-top: 0em;" ng-show="match.website">
@@ -121,7 +121,7 @@
     </div>
     <div class="fixed-action-btn horizontal right-align"style="position:relative; top: -1.3em;">
      <a class="btn-floating btn pink darken-2">
-       <i style="15px"class="material-icons">share</i>
+       <i class="material-icons">share</i>
      </a>
      <ul>
        <li style="top: 0;"><button class="btn-floating blue" id="fb" ng-click="fbPost()"></button></li>
@@ -139,7 +139,7 @@
 
 
   <li class="collection-item" style="border: none;">
-      <div class="row map-row" style="witdh: 60vw; height: 80vw;">
+      <div class="row map-row" style="width: auto; height: 60vw;">
           <div id="map" ng-style="{'background-image':'url({{ map }})'}" style="width: 100%; height: 100%;" style="margin-left: 20%"></div>
       </div>
   </li>
@@ -155,7 +155,7 @@
 </li>
 
     <li style="padding-bottom:20px;"class="collection-item" style="border: none;">
-        <button style="width:100%" class="waves-effect waves-light btn red" ng-click="reject()">Not Interested<i style="color:; float: right"class="material-icons">not_interested</i></button>
+        <button style="width:100%" class="waves-effect waves-light btn red" ng-click="reject()">Not Interested<i style="float: right"class="material-icons">not_interested</i></button>
       </li>
     </ul>
     </div>
@@ -183,12 +183,9 @@
     //     let current = { lat: position.lat, lng: position.lng };
     //     let destination = { lat: match.lat, lng: match.lng };
     //
-    //     console.log(destination);
-    //     console.log(current);
     //
     //     if (position) {
     //         let midpoint = { lat: (destination.lat + current.lat)/2, lng: (destination.lng + current.lng)/2 };
-    //         console.log(midpoint);
     //         let map = new google.maps.Map(document.getElementById("map"), {
     //             zoom: 12,
     //             center: midpoint,
